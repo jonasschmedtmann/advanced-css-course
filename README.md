@@ -4,7 +4,7 @@ This repo contains starter files and the finished project files for all the proj
 
 Plus, I made all the course slides available for download, to make it easier to follow along the conceptual videos.
 
-Please read the following Frequently Asked Questions (FAQ) carefully before starting the course.
+*Please read the following Frequently Asked Questions (FAQ) carefully before starting the course.*
 
 ## FAQ
 
@@ -18,7 +18,7 @@ Please read the following Frequently Asked Questions (FAQ) carefully before star
 
 ### Q3: You keep mentioning your resources page. Where can I find it?
 
-**A:** It's on my website at <http://codingheroes.io/resources>. You can subscribe for updates.
+**A:** It's on my website at <http://codingheroes.io/resources>. You can subscribe for updates 😉
 
 ### Q4: What VSCode theme are you using?
 
@@ -34,7 +34,7 @@ Please read the following Frequently Asked Questions (FAQ) carefully before star
 
 ### Q7: I love your courses and want to get updates on new courses. How?
 
-**A:** First, you can subscribe to my email list [at my website](http://codingheroes.io/newsletter). Plus, I make important announcements on twitter [@jonasschmedtman](https://twitter.com/jonasschmedtman), so you can definitely follow me there!
+**A:** First, you can subscribe to my email list [at my website](http://codingheroes.io/newsletter). Plus, I make important announcements on twitter [@jonasschmedtman](https://twitter.com/jonasschmedtman), so you should definitely follow me there 🔥
 
 ### Q8: Can I connect with your other students in some way?
 
