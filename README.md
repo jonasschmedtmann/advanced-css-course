@@ -26,7 +26,7 @@ Plus, I made all the course slides available for download, to make it easier to 
 
 ### Q5: The videos don't load, can you fix it?
 
-**A:** Unfortunately, there is nothing I can do about it. The course is hosted on Udemy's platform, and sometimes they have small tecnical issues like this one. Please just come back a bit later or [contact their support team](https://support.udemy.com/hc/en-us). Also, don't forget to select the HD option in the video player.
+**A:** Unfortunately, there is nothing I can do about it. The course is hosted on Udemy's platform, and sometimes they have small technical issues like this one. Please just come back a bit later or [contact their support team](https://support.udemy.com/hc/en-us). Also, don't forget to select the HD option in the video player.
 
 ### Q6: Are the videos downloadable as well?
 
