@@ -22,7 +22,7 @@ Plus, I made all the course slides available for download, to make it easier to 
 
 ### Q4: What VSCode theme are you using?
 
-**A:** I use Oceanic Next (dimmed bg) for all my coding and course production.
+**A:** I use Oceanic Next (dimmed bg) for all my coding and course production. [Here is my complete VSCode setup](vscode-setup.md).
 
 ### Q5: The videos don't load, can you fix it?
 
