@@ -18,9 +18,12 @@ This is more of a workaround if Solution 1 doesn't work. You can install a packa
 
 `npm install nodemon --save-dev`
 
-Then in the `package.json` file, change the `watch:css` task to:
+Then in the `package.json` file, add the following tasks:
 
-`"watch:sass": "nodemon -e scss -x \"npm run compile:sass\""`
+```
+"compile:sass": "node-sass sass/main.scss css/style.comp.css"
+"watch:sass": "nodemon -e scss -x \"npm run compile:sass\""
+```
 
 ### Solution 3
 
@@ -36,9 +39,9 @@ On Windows you will have to escape the `"` in the autoprefixer task, just like t
 
 ## Q3: General problems
 
-If your NPM packages don't work at all, please make sure you have at least node `v6.x.x` installed on your computer. You can check your verison with `node -v`.
+If your NPM packages don't work at all, please make sure you have at least node `v6.x.x` installed on your computer. You can check your version with `node -v`.
 
-You can also try setting all your NPM packages to the same versions used in the videos. I works like described in **Q1** of this document (`node-sass` example). These are the versions I used in the videos:
+You can also try setting all your NPM packages to the same versions used in the videos. It works like described in **Q1** of this document (`node-sass` example). These are the versions I used in the videos:
 
 ```
 "autoprefixer": "^7.1.4",
@@ -48,4 +51,4 @@ You can also try setting all your NPM packages to the same versions used in the 
 "postcss-cli": "^4.1.1"
 ```
 
-I will keep this document updated if more issues arise.
+**I will keep this document updated if more issues arise.**
