@@ -28,22 +28,30 @@ Unfortunately, this is quite common. I listed some possible fixes [in this docum
 
 **A:** I use Oceanic Next (dimmed bg) for all my coding and course production. [Here is my complete VSCode setup](vscode-setup.md).
 
-### Q6: The videos don't load, can you fix it?
+### Q6: You use codepens in some of the lectures. Where can I find them?
+
+**A:** They are all available on my [public codepen profile](https://codepen.io/jonasschmedtmann/pens/public/). The ones you're looking for might be buried under some newer ones.
+
+### Q7: can I see a final version of the course projects?
+
+**A:** Sure, I have an online version of all three. Here they are: [Natours](https://natours.netlify.com) (advanced CSS, Sass and responsive design), [Trillo](http://trillo.netlify.com/) (flexbox) and [Nexter](https://nexter.netlify.com/) (CSS Grid).
+
+### Q8: The videos don't load, can you fix it?
 
 **A:** Unfortunately, there is nothing I can do about it. The course is hosted on Udemy's platform, and sometimes they have small technical issues like this one. Please just come back a bit later or [contact their support team](https://support.udemy.com/hc/en-us). Also, don't forget to select the HD option in the video player.
 
-### Q7: Are the videos downloadable as well?
+### Q9: Are the videos downloadable as well?
 
 **A:** Yes, I made all videos downloadable on the Udemy platform so you can learn even without an internet connection. To download a video, use the settings icon in the right bottom corner of the video player.
 
-### Q8: I love your courses and want to get updates on new courses. How?
+### Q10: I love your courses and want to get updates on new courses. How?
 
 **A:** First, you can subscribe to my email list [at my website](http://codingheroes.io/newsletter). Plus, I make important announcements on twitter [@jonasschmedtman](https://twitter.com/jonasschmedtman), so you should definitely follow me there 🔥
 
-### Q9: Can I connect with your other students in some way?
+### Q11: Can I connect with your other students in some way?
 
 **A:** Yep, I thought about this! I started quite an active Discord chatroom for you to chat with other students, help each other out or just hang out with like-minded people. You can [join using this invite](https://discord.gg/0ocsLcmnIZqxMSYD).
 
-### Q10: How do I get my certificate of completion?
+### Q12: How do I get my certificate of completion?
 
 **A:** A certificate of completion is provided by Udemy after you complete 100% of the course. After completing the course, just click on the small trophy icon on the course overview page. If you want to change your name on the certificate, please [contact the Udemy support team](https://support.udemy.com/hc/en-us).
