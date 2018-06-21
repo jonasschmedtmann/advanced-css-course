@@ -37,8 +37,14 @@ body {
 
 .heading-primary--main {
     display: block;
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: 35px;
 }
 
 .heading-primary--sub {
     display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 18px;
 }
