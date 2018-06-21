@@ -27,11 +27,5 @@ body {
     background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(000, 000, 000, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
-
-    /* clip-path: polygon(0 0, 500px 100px,100% 200px,0 100%) */
-    /* clip-path: polygon(50% 0, 100% 100%,0 100%)                triangle */
-    /* clip-path: polygon(0 0, 100% 100px,100% 0,0 100%)             no shape double  */
     clip-path: polygon(0 0, 100% 0,100% 75vh,0 100%)
-
-    /* more https://bennettfeely.com/clippy/ */
 }
