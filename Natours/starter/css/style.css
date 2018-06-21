@@ -27,5 +27,18 @@ body {
     background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(000, 000, 000, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
-    clip-path: polygon(0 0, 100% 0,100% 75vh,0 100%)
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+}
+
+.heading-primary {
+    color: #777;
+    text-transform: uppercase;
+}
+
+.heading-primary--main {
+    display: block;
+}
+
+.heading-primary--sub {
+    display: block;
 }
