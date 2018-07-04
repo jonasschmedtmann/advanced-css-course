@@ -31,7 +31,7 @@ body {
 }
 
 .heading-primary {
-    color: #777;
+    color: rgb(241, 236, 236);
     text-transform: uppercase;
 }
 
@@ -40,6 +40,11 @@ body {
     font-size: 60px;
     font-weight: 300;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft !important;
+    animation-duration: 1s;
+    /* animation-delay: 3s;
+    animation-iteration-count: 2; */
 }
 
 .text-box-center {
@@ -54,4 +59,21 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 18px;
+}
+
+@keyframes moveInLeft {
+
+    0%{
+        opacity: 0;
+        transform: translateX(-50px)
+    }
+
+    60% {
+        transform: translateX(10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0)
+    }
 }
