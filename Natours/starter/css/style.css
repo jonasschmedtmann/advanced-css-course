@@ -43,6 +43,8 @@ body {
 
     animation-name: moveInLeft !important;
     animation-duration: 1s;
+    animation-timing-function: ease-out;
+
     /* animation-delay: 3s;
     animation-iteration-count: 2; */
 }
@@ -59,6 +61,24 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 18px;
+    animation: moveInRight 1s ease-out !important;
+}
+
+@keyframes moveInRight {
+
+    0%{
+        opacity: 0;
+        transform: translateX(50px)
+    }
+
+    60% {
+        transform: translateX(-10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0)
+    }
 }
 
 @keyframes moveInLeft {
