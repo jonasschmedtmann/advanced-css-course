@@ -24,7 +24,7 @@ body {
 
 .header {
     height: 95vh;
-    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(000, 000, 000, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.4), rgba(000, 000, 000, 0.4)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
@@ -32,6 +32,15 @@ body {
 
 .logo-box:hover {
     animation: moveInLeft 1s ease-in ;
+}
+
+
+.text-box-center {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
 }
 
 .heading-primary {
@@ -53,19 +62,14 @@ body {
     animation-iteration-count: 2; */
 }
 
-.text-box-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%)
-}
-
 .heading-primary--sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 18px;
     animation: moveInRight 1s ease-out !important;
+    backface-visibility: visible;
+    margin-bottom: 60px;
 }
 
 @keyframes moveInRight {
@@ -100,4 +104,29 @@ body {
         opacity: 1;
         transform: translate(0)
     }
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #777;
+}
+
+.btn:link ,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .3s;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} 
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
