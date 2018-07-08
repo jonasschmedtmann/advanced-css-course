@@ -6,3 +6,127 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.4), rgba(000, 000, 000, 0.4)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+}
+
+.logo-box:hover {
+    animation: moveInLeft 1s ease-in ;
+}
+
+
+.text-box-center {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.heading-primary {
+    color: rgb(241, 236, 236);
+    text-transform: uppercase;
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft !important;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* animation-delay: 3s;
+    animation-iteration-count: 2; */
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 18px;
+    animation: moveInRight 1s ease-out !important;
+    backface-visibility: visible;
+    margin-bottom: 60px;
+}
+
+@keyframes moveInRight {
+
+    0%{
+        opacity: 0;
+        transform: translateX(50px)
+    }
+
+    60% {
+        transform: translateX(-10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+@keyframes moveInLeft {
+
+    0%{
+        opacity: 0;
+        transform: translateX(-50px)
+    }
+
+    60% {
+        transform: translateX(10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #777;
+}
+
+.btn:link ,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .3s;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} 
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
