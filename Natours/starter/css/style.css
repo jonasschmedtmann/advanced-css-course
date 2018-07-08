@@ -30,6 +30,10 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
 }
 
+.logo-box:hover {
+    animation: moveInLeft 1s ease-in ;
+}
+
 .heading-primary {
     color: rgb(241, 236, 236);
     text-transform: uppercase;
