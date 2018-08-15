@@ -76,6 +76,9 @@
     }
 
     &__link {
+        pointer-events: none;
+        cursor: default;
+
         &:link,
         &:visited {
             display: inline-block;
@@ -112,6 +115,11 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+    }
+
+    &__checkbox:checked ~ &__nav &__list &__item &__link {
+        pointer-events: auto;
+        cursor: pointer;
     }
 
 
