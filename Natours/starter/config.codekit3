@@ -270,6 +270,19 @@
 		"oA": 0,
 		"oAP": "/index.html",
 		"oF": 0
+		},
+	"/scss/style.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/css/style.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
 		}
 	},
 "hooks": [
@@ -2202,7 +2215,7 @@
 		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
-		"autoOutputPathStyle": 0,
+		"autoOutputPathStyle": 2,
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
