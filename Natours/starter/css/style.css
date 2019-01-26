@@ -7,32 +7,34 @@ html {
   font-size: 10px; }
 
 body {
+  padding: 3rem; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0%;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 100%;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0%;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 100%;
+    transform: translate(0); } }
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
-
-.header {
-  height: 80vh;
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 111, 0.5), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
@@ -58,26 +60,6 @@ body {
     animation-duration: 1s;
     animation-delay: .5s;
     animation-timing-function: ease-out; }
-
-@keyframes moveInLeft {
-  0% {
-    opacity: 0%;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 100%;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0%;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 100%;
-    transform: translate(0); } }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -120,3 +102,23 @@ body {
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; }
+
+.header {
+  height: 80vh;
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 111, 0.5), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
