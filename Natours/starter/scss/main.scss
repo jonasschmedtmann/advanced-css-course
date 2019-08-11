@@ -1,3 +1,7 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
 * {
   margin: 0;
   padding: 0;
@@ -19,10 +23,16 @@ html {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.801)), url("../img/hero.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
+
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 
@@ -40,7 +50,6 @@ html {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
 .heading-primary {
   color: #ffffff;
   text-transform: uppercase;
@@ -73,37 +82,45 @@ html {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   80% {
     transform: translateX(10px);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
     transform: translateX(100px);
   }
+
   80% {
     transform: translateX(-10px);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 @keyframes moveInBottom {
   0% {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -146,7 +163,6 @@ html {
 .btn-white::after {
   background-color: white;
 }
-
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
@@ -156,5 +172,3 @@ html {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
-
-/*# sourceMappingURL=style.css.map */
