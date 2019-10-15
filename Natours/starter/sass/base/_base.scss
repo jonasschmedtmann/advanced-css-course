@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // this define what 1 rem is going to be. 
+  font-size: 65.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
