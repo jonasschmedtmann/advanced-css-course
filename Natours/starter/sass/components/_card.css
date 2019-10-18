@@ -1,0 +1,12 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+}
+.card__side {
+  background-color: orangered;
+  height: 50rem;
+  transition: all 0.8s;
+}
+.card:hover .card__side {
+  transform: rotateY(180deg);
+}
