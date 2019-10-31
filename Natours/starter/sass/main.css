@@ -1,3 +1,18 @@
+/*
+0 -600px Phone 
+600 - 900px Tablet portrait
+900 - 1200px Tablet landscape
+[1200 - 1800] is where our noraml style apply 
+1800px +: Big desktops 
+
+$Breakpoint arguement choices:
+- Phone
+- tab-port
+- tab-land
+- big desktop
+
+1em = 16px
+*/
 @-webkit-keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -14,7 +29,6 @@
             transform: translateX(0);
   }
 }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -103,6 +117,24 @@
 
 html {
   font-size: 65.5%;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
