@@ -15,6 +15,15 @@
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
         text-align: center;
         cursor: pointer;
+
+        @include respond(tab-port){
+            top: 6rem;
+            right: 6rem;
+        }
+        @include respond(phone){
+            top: 3rem;
+            right: 3rem;
+        }
     }
     &__background {
         height: 6rem;
@@ -23,10 +32,18 @@
         position: fixed;
         top: 6.5rem;
         right: 6.5rem;
-        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        background-image: radial-gradient ($color-primary-light, $color-primary-dark);
         z-index: 1000;
         transition: transform .8s cubic-bezier(.86, 0, .07, 1);
 
+        @include respond(tab-port){
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+        @include respond(phone){
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
     &__nav {
         height: 100vh;
