@@ -1312,7 +1312,7 @@ body {
   position: fixed;
   top: 6.5rem;
   right: 6.5rem;
-  background-image: radial-gradient #7ed56f, #28b485;
+  background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
   transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
