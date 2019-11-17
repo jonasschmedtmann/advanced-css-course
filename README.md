@@ -1,10 +1,5 @@
 # Course Material and FAQ for my Advanced CSS Course
 
-This repo contains starter files and the finished project files for all the projects contained in the course.
-
-Plus, I made all the [course slides available for download](slides-students-C04.pdf), to make it easier to follow along the conceptual videos.
-
-👇 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 👇
 
 ## FAQ
 
@@ -12,13 +7,17 @@ Plus, I made all the [course slides available for download](slides-students-C04.
 
 **A:** If you're new to GitHub and just want to download the complete package, hit the green button saying "Clone or download", choose the "Download ZIP" option, and you're good to go.
 
-### Q2: One of the NPM packages is not working (compiling Sass, live-reload, etc). How to fix it?
 
 Unfortunately, this is quite common. I listed some possible fixes [in this document](npm-fixes.md).
 
 ### Q3: I'm stuck in one of the projects. Where do I get help?
 
 **A:** Have you extensively tried fixing the problem on your own? If you failed at fixing it, please **post a detailled description of the problem to the Q&A area of that video over at Udemy**, along with a [codepen](https://codepen.io/pen/) containing your code. You will get help as fast as possible! Please don't send me a personal message or email to fix coding problems.
+This repo contains starter files and the finished project files for all the projects contained in the course.
+
+Plus, I made all the [course slides available for download](slides-students-C04.pdf), to make it easier to follow along the conceptual videos.
+
+👇 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 👇
 
 ### Q4: You keep mentioning your resources page. Where can I find it?
 
