@@ -2,11 +2,34 @@
     &__pictures {
         background-color: $color-primary;
         grid-column: full-start/ col-end 4;
-
     }
     
     &__content{
         background-color: $color-grey-light-1;
         grid-column: col-start 5/ full-end;
+
+        padding: 6rem 8vw;
+        /*
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        */
+
+        display: grid;
+        align-items: center;
+        justify-items: start;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 4rem;
+
     }
 }
+
+.mb-sm {margin-bottom: 2rem;}
+.mb-md {margin-bottom: 3rem;}
+.mb-lg {margin-bottom: 4rem;}
+.mb-hg {margin-bottom: 8rem;}
