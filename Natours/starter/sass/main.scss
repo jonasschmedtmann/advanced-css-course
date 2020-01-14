@@ -49,8 +49,8 @@ table {
 
 
 $color-primary: #55c57a;
-$color-primary-light: #8dd480;
-$color-primary-dark: #32b68a;
+$color-primary-light: #b1eea7;
+$color-primary-dark: #57b897;
 
 $color-white: #fff;
 $color-gray-dark: #777;
@@ -112,7 +112,7 @@ body {
 }
 
 .heading-primary {
-    color: #$color-white;
+    color: $color-white;
     text-transform: uppercase;
 
     backface-visibility: hidden;
@@ -211,7 +211,7 @@ body {
 }
 
 .btn--white {
-    background-color: #$color-white;
+    background-color: $color-white;
     color: $color-gray-dark;
 }
 
@@ -229,7 +229,7 @@ body {
 }
 
 .btn--white::after {
-    background-color: #$color-white;
+    background-color: $color-white;
 }
 
 .btn:hover::after {
