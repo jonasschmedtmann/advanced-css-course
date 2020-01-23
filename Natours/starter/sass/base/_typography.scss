@@ -41,7 +41,7 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     display: inline-block;
-    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-image: linear-gradient(to right, $color-primary, $color-primary-light);
     -webkit-background-clip: text;
     color: transparent;
     letter-spacing: 2px;
@@ -54,13 +54,13 @@ body {
 }
 
 .heading-tertiary {
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .paragraph {
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     &:not(:last-child){
         margin-bottom: 3rem;
     }
