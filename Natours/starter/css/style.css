@@ -34,3 +34,86 @@ body {
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation: moveInRight 0.6s ease-out;
+    /* long hand properties below
+    animation-name: moveInLeft;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    */
+
+    /*
+    animation-iteration-count: 3;
+    animation-delay: 3s;
+    */
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 17.4px;
+    animation: moveInRight 0.6s ease-out;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
