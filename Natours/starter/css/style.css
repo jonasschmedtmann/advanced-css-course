@@ -56,8 +56,8 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-
-    animation: moveInRight 0.6s ease-out;
+    
+    animation: moveInLeft 0.6s ease-out;
     /* long hand properties below
     animation-name: moveInLeft;
     animation-duration: 0.6s;
@@ -120,6 +120,18 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
@@ -127,7 +139,7 @@ body {
     padding: 15px 40px;
     display: inline-block;
     border-radius: 100px;
-    transition: all 0.2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -143,4 +155,31 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100px;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color:#fff;
+}
+
+.btn:hover::after {
+    transform: scale(1.4, 1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 0.5s ease-out .75s; /* .75s is the animation delay */
+    animation-fill-mode: backwards; /* this property applies the styles of 0% before the animation starts - in this case the opacity:0 from moveinBottom animation gets applied before the animation starts */
 }
