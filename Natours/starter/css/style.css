@@ -6,6 +6,9 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+html {
+    font-size: 62.5%;
+}
 
 *,
 *::after,
@@ -19,7 +22,6 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 62.5%;
     color: #777;
     padding: 3rem;
     box-sizing: border-box;
