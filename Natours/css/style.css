@@ -20,6 +20,7 @@ body {
   font-size: 10px;
   line-height: 1.7;
   color: #777777;
+  padding: 30px;
 }
 
 .header {
@@ -32,4 +33,6 @@ body {
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  /* Cut elements with a specified shape */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
