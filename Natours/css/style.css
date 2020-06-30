@@ -61,6 +61,11 @@ body {
 .heading-primary {
   color: #ffffff;
   text-transform: uppercase;
+
+  /* Determine whether or not the 'back' side of a transformed element
+    is visible when facing the viewer. With an identity transform,
+    the front side of an element faces the viewer */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -68,6 +73,12 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* Time until the animation start: animation-delay: 3s; 
+    Number of times the animation will play: animation-iteration-count: 5;
+    How the animation will progress over one cycle of its duration: animation-timing-function: ease-in; */
 }
 
 .heading-primary-sub {
@@ -75,4 +86,59 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out; /* All the animations properties together */
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(
+      -100px
+    ); /* It can receive multiple parameters as translate and rotate at the same time */
+  }
+
+  /* 20% {
+    opacity: 0.2;
+    transform: translate(-800px, -50px);
+  }
+
+  40% {
+    opacity: 0.4;
+    transform: translate(-600px, 50px);
+  }
+
+  60% {
+    opacity: 0.6;
+    transform: translate(-400px, -50px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translate(-200px, 50px);
+  } */
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
