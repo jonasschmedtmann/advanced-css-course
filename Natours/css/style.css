@@ -33,6 +33,20 @@ body {
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  position: relative;
   /* Cut elements with a specified shape */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  /* If the width is not directly specified,
+    then the browser calculate it based on the
+    height */
+  height: 35px;
 }
