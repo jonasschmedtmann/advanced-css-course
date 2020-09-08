@@ -36,7 +36,14 @@
 - font-size: the height of the text in pixels or derivative value.
 - line-height: property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.
 - color: sets the text color
+- background-color: sets the color of the background.
+
+# Text Attributes
+
+- text-transform: uses functions to change the text in certain ways. eg. uppercase, lowercase
+- text-decoration: allows for text stylings to be applied, such as colors, underline, etc. none clears all formatting
 
 # Special Attributes
 
 - clip-path: creates a mask for the element, only displaying parts of the element that are within the path.
+- box-shadow: creates a drop shadow for the element
