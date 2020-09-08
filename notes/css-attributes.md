@@ -18,6 +18,17 @@
   - relative: the element is placed via normal flow, then offset by any positioning attributes that are defined. Does NOT affect the positioning of any other elements, but causes the element's origin to act as the origin for any child elements that are using absolute position.
   - absolute: the element is removed from normal document flow. it is placed using the closest positioned parent as it's origin. defining positioning offsets the element from that parent element.
 
+# Animation Properties
+
+@keyframes animationName - defines an animation to be used in an animation property - define various keyframes at certain percentages - only animate opacity and transform attributes, as these are the only properties that browsers are optimized for.
+
+- animation: shorthand for defining several animation properties in one property
+- animation-name: the @keyframes to use for animating the element
+- animation-duration: how long it should take to perform the animation
+- animation-timing-function: how the animation accelerates or decelerates over time. used for customizing the feel of animations
+- animation-delay: how long before the animation should begin
+- animation-iteration-count: how many times the animation should repeat before stopping
+
 # Font Attributes
 
 - font-family: the font families that the browser will try to use. loaded in order from left to right, the first font that is found to be loaded is used to display the text.
@@ -25,3 +36,7 @@
 - font-size: the height of the text in pixels or derivative value.
 - line-height: property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.
 - color: sets the text color
+
+# Special Attributes
+
+- clip-path: creates a mask for the element, only displaying parts of the element that are within the path.
