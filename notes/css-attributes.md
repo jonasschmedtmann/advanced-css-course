@@ -17,6 +17,7 @@
   - static: the default value. the element is positioned according to the normal flow of the document
   - relative: the element is placed via normal flow, then offset by any positioning attributes that are defined. Does NOT affect the positioning of any other elements, but causes the element's origin to act as the origin for any child elements that are using absolute position.
   - absolute: the element is removed from normal document flow. it is placed using the closest positioned parent as it's origin. defining positioning offsets the element from that parent element.
+  - z-index: the order in which elements are shown if stacked. the lowest number is on the bottom of the stack, the highest on top.
 
 # Animation Properties
 
@@ -28,6 +29,7 @@
 - animation-timing-function: how the animation accelerates or decelerates over time. used for customizing the feel of animations
 - animation-delay: how long before the animation should begin
 - animation-iteration-count: how many times the animation should repeat before stopping
+- animation-fill-mode: allows initial keyframe styling to be applied the element while the animation is delated.
 
 # Font Attributes
 
