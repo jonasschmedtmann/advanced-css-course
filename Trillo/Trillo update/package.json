@@ -1,0 +1,14 @@
+{
+  "name": "trillo-project",
+  "version": "1.0.0",
+  "description": "landing page of website",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css "
+  },
+  "author": "Jitesh Gadage",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

@@ -1,0 +1,13 @@
+// var chatBox = document.getElementsByClassName('.user-nav__icon');
+
+// function chatBox(){
+//           alert("you clicked chat box");
+
+// }
+
+
+
+// chatBox.addEventListener(click,function(){
+//     chatBox.style.color = "black"
+// })
+ 

@@ -1,0 +1,116 @@
+.container{
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-gray-light-2);
+    box-shadow: 0 2rem 6rem rgba(0,0,0,0.3);
+    min-height: 50rem;
+
+     @media only screen and (max-width: $bp-largest) {
+         margin: 0;
+         max-width: 100%;
+         width: 100%;
+    }
+
+}
+.header{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom:1px solid var(--color-gray-light-2);
+
+    
+    @media only screen and (max-width: $bp-smallest){
+        flex-wrap: wrap;
+        height: 12rem;
+        justify-content: space-between;
+        
+    }
+
+}
+.content{
+    display: flex;
+    @media only screen and (max-width: $bp-medium) {
+       flex-direction: column;
+   }
+
+}
+.sidebar{
+    background-color: var(--color-gray-dark-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:0 0 18%;
+   
+}
+.hotel-view{   
+    // background-color: orangered;
+     flex: 1;
+    
+     
+}
+
+.detail{
+    font-size: 1.4rem;
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-gray-light-1);
+    border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
+      
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    } 
+}
+.discription{
+   
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: var(--shadow-light);
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    } 
+
+     
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right:3rem ;
+    } 
+}
+.user-review{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+/******** Flight Menu  *****************/
+
+.flights{
+    display: flex;
+    //  padding: 3rem;
+    justify-content: space-around;
+    
+
+
+    &__details{
+         background-color: red;
+         
+    }
+
+    &__names{
+        background-color: orange;
+
+    }
+}
