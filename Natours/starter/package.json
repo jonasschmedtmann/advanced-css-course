@@ -1,0 +1,22 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "Natour project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittiragavendra-github/OMidFood.git"
+  },
+  "author": "ragavendrapitti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pittiragavendra-github/OMidFood/issues"
+  },
+  "homepage": "https://github.com/pittiragavendra-github/OMidFood#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
