@@ -6,3 +6,177 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px; /* para que el rededor tenga un borde */
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,       /*aca dice que vaya para la derecha y abajo (esquina de abajo derecha) */
+        rgba(126, 213, 111, 0.8), rgb(40, 180, 131, 0.8) ),      /*LINEAR-GRADIENT para poner el gradiante de colores por encima de la imagen, por eso esta adelante tambien*/ 
+        url("../img/hero.jpg");      /*URL para obtener la imagen desde la carpeta img*/
+    background-size: cover;      /* para que siempre cubra la totalidad de la pantalla, por mas que se agrande/achique */
+    background-position: top;      /* hace que siempre se muestre arriba de todo, sin importar si se mueve la ventada */
+    position: relative;     /* referencia para los elementos que esten dentro de ella, como el logo, que tiene top y left dependiendo de esta posicion */
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* las posiciones son x y, x y, x y, x y, comenzando desde la esquina izquierda superior y para la derecha */
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* pone todo dentro de este cuadro en el centro */
+
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 60px; /* mueve el elemento para abajo */
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400; 
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft; /* all this animation can be replace by animation: name duration function delay */
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing:17.4px;
+
+    animation: moveInRight 1s ease-in;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* se desplaza por el eje x */
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* se desplaza por el eje x */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+.btn:link, 
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; 
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover { /* hover cuando el mouse se posiciona sobre ella */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active { /* cuando se realiza la accion del click  */
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after { /* sudo tener como una copia del boton dentras del boton */
+    content: "";
+    display: inline-block; /* porque el boton estaba en inline-block ya */
+    height: 100%; /* 100% porque es igual al otro boton, entocnes 100% mismo tamaño */
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* define la posicion del elemento cuando uno esta encima del otro, entonces -1 es atras */
+    transition: all 0.4s;
+}
+
+.btn-white::after { 
+    background-color: #fff;
+}
+
+.btn:hover::after { /* esto pasa solo cuando nosotros estamos sobre el hover */
+    transform: scaleX(1.4) scaleY(1.6); /* increse de size of the element */
+    opacity: 0; /* hace un gradiante a transparente, entonces hace efecto de que desaparece */
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /* automaticamente pone los estilos en 0% antes de que la animacion empiece */
+}
