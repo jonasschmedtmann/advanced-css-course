@@ -5,4 +5,252 @@ Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
 
+ ** box-sizing: define how the width and height are calculated: should they include padding and borders
+                default is content-box
+ ** line-height: 1.7 
+                1.7 times bigger than the predefined line height
+ ** color: (font color)
+ 
+ ** universal 的字体定义在body 里面比较好，这样其他element会通过继承apply字体样式
+
+ ** height: 95vh  95% of viewpoint height
+
+
 */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    /* padding不会被继承，只是给body加一个padding */
+    padding: 30px;
+
+}
+
+
+.header {
+    height: 95vh;
+    /* background image 按定义的先后，先定义的在第一层，再往后叠放； 可在 background-image 第一个参数定义渐变方向*/
+    background-image:  linear-gradient(to right bottom,#7ed56fb4, #28b485a2), url(../img/hero.jpg);
+    /* whatever the size of viewpoint, try to fit it (会根据viewpoint的缩放而缩放) */
+    background-size: cover;
+    /* 在缩放时候保持image top 部分维持不变 */
+    background-position: top; 
+    /* polygon 定义留在屏幕上的图片， 定义多点坐标 100% 对应图片的width height*/
+    /* 正三角形 polygon(50% 0, 100% 100%, 0 100% ) */
+    /* Tool: clippy */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+
+    /* 给logo box 的top right 提供参考系 */
+    position: relative;
+}
+
+
+.logo-box {
+    /* absolute 的参考系是有position 为relative 的parent:header */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+
+
+.logo {
+    /* 一般只规定image 的height， browser 会自动计算width */
+    height: 35px;
+}
+
+/* .logo:hover {
+    animation: moveInRight 1s ease-out;
+} */
+
+.text-box {
+     /* absolute 的参考系是有position 为relative 的parent:header */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* 这个%只和自己本身element有关，向左shift 50%，再向上shift 50% */
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    /* 防止animationshake， 在他内部的element animate 时，隐藏本身 */
+    backface-visibility: hidden;
+
+    margin-bottom: 60px;
+}
+
+
+/* <span> element is in-line by default; block element occupy the entire width that they have available within the box; create line break after and before them */
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 500;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    /* animation-delay: 2s;
+    animation-iteration-count: 3;
+    animation-timing-function: ease-out; */
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 3s;
+}
+
+/* 定义一个animation */
+@keyframes moveInLeft {
+    /* animation 进程百分比  */
+    0% {
+        /* 一开始不可见 fade in */
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* 定义一个animation */
+@keyframes moveInRight {
+    /* animation 进程百分比  */
+    0% {
+        /* 一开始不可见 fade in */
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    /* animation 进程百分比  */
+    0% {
+        /* 一开始不可见 fade in */
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* link pseudo-class 点过link以后link默认颜色会变，这里我们想让它保持不变*/
+.btn:link,
+.btn:visited { 
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* 如果想要这个inline block center， 只要在parent：text-box  apply text-align：center */
+    display: inline-block;
+    border-radius: 100px;
+
+    /* add animation (在inital state 这里添加，而不是在hover 或者active 上); 使用one-line 样式定义: 允许什么property 发生 （all 这里指:hover and :active） */
+    transition: all .2s;
+
+    position: relative;
+
+}
+
+.btn:hover {
+    /* 让这个element move up */
+    transform: translateY(-3px);
+    /* offset in x direction；  offset in y direction； blur;  color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+/* 点过以后状态就是active */
+.btn:active {
+    /* 让这个element move up 1px （相对于inital ：link state） */
+    transform: translateY(-1px);
+    /* 点过以后让button看上去有往下摁的效果 */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+/* ::after work as a child of btn */
+.btn::after {
+    /* content 是必须的， 可以传一个空string */
+     content: "";
+     display: inline-block;
+     /* 这里的参考系都是parent 即.btn 的长和宽 */
+     height: 100%;
+     width: 100%;
+
+     border-radius: 100px;
+
+     /* 想把这个：after 样式的button放在原button的正背面; absolute会找到一个最近的parent 有relative 作为reference（btn）*/
+     position: absolute;
+     top: 0;
+     left: 0;
+     /* 到此它只是正好叠在了btn的表面，要把它往下放一层， 用zindex */
+     z-index: -1;
+
+     /* 给这个tranform规定一个时间 （让：after变大的特效 --> fade out） */
+     transition: all .4s;
+
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+/* 当hover 在btn时，想要apply一些style在：after 上: 让：after变大的特效 --> fade out */
+.btn:hover::after {
+    /* 放大 */
+    transform: scaleX(1.4) scaleY(1.6);
+    /* fade out */
+    opacity: 0;
+
+}
+
+/* 只想让这个button有animation的效果，所以单独给它一个classname */
+.btn-animated {
+    /* 延时.75 */
+    animation: moveInBottom .5s ease-out .75s;
+    /* animation fill mode: 自动apply style： before start的时候可见度为0%*/
+    animation-fill-mode: backwards;
+}
