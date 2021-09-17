@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  //*setting box-sizing to inherit, makes it easier to change box-sizing properties, dynamically, just like we do with REM font-size in the html selector*/
+  box-sizing: inherit;
+}
+
+//*setting the root element to 62.5% helps maintain our 10px ratio, and allow for dynamic re-sizing*/
+html {
+  //this defines what 1rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}

@@ -1,0 +1,105 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    //* this is the transition between different states (hover, active, etc),
+    //using 'all' properties of the element that can be transitioned, and a set
+    //duration of .2s to complete the transition.
+    //transition is shorthand, and can take 4 different values.
+    //property, duration, timing-function, delay */
+    //* specifying a relative position for the element, will allow pseudo elements
+    //to use it for a reference point, instead of the container it's in,
+    //when specifying pseudo element positions */
+    position: relative;
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      //*when the button is hovered over, it moves up 3px,
+      //and it's pseudo element 'after' which is a copy,
+      //that is hiding in the background, is also animated here on hover,
+      //causing it to scale outwards, and dissipate until opacity is zero.
+      //the transition information is defined in .btn::after' */
+
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    //*this pseudo element, is a copy of the original btn,
+    //  that we are hiding behind the original btn,
+    //  it inherits the original btn's position since
+    //  .btn position is set to 'relative',
+    //  we created this element so we could perform another animation,
+    //  in addition to the hover transition that the btn has.
+    //  this helps us with the echoing effect of the button background
+    //*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all, 0.4s;
+  }
+
+  &-animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+
+  //* animation-fill-mode will automaticall apply the styles at zero percent, before the animation begins */
+  //* this helps so the botton doesn't initially show then disappear when the animation begins */
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $color-primary;
+    padding: 0.3rem;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,13 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//pseudo elements always need the content: "" <- set to empty to work
+//display is set to table which is based of of html <table>
+//clear is used to let this code work no matter if you have a float left or a float right.
+//a clearfix is implemented to give an element its height back
+//because an element's height will collapse if all child elements are floated.
