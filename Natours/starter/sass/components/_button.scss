@@ -1,4 +1,5 @@
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -17,6 +18,8 @@
     //when specifying pseudo element positions */
     position: relative;
     font-size: $default-font-size;
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -35,7 +38,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none; //removes the focus outline, but doesn't completely remove the focus
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
