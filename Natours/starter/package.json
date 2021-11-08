@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Tarcísio Giroldo Siqueira",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/girordo/advanced-css-course.git"
+  },
+  "bugs": {
+    "url": "https://github.com/girordo/advanced-css-course/issues"
+  },
+  "homepage": "https://github.com/girordo/advanced-css-course#readme",
+  "description": "",
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
