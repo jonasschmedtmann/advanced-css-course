@@ -165,7 +165,7 @@ btn:visited {
 }
 
 .btn-white::after {
-  background-color: #fff;
+  background-color: whitesmoke;
 }
 
 .btn:hover::after {
