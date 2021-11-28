@@ -6,7 +6,7 @@ Use starter code to start each section, and **final code to compare it with your
 
 Plus, I made all the [course slides available for download](slides-students-C04.pdf), to make it easier to follow along the theory lectures.
 
-👇 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 👇
+👇 **_Please the following Frequently Asked Questions (FAQ) carefully before starting the course_** 👇
 
 ## FAQ
 
