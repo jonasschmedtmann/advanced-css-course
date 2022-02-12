@@ -27,10 +27,48 @@ body {
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.8),
-      rgba(85, 197, 122, 0.8)
+      rgba(40, 183, 131, 0.8)
     ),
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  position: relative;
+
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 17.4px;
 }
