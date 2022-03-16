@@ -1,0 +1,26 @@
+* , 
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /* border box includes padding and border into width/height */
+    box-sizing: inherit;
+}
+
+html {
+    /* 
+    DEFINES WHAT 1rem IS
+    scales font/paddings according to size 
+    the user specifies in the browser 
+
+    10 (font-size we want as default) / 16 (browser default size at 100%) 
+    = 0.625 (our adjusted transformation)
+
+    it is best practice to use notation .5 not 0.5
+    */
+    font-size: 62.6%;
+}
+
+body {
+    box-sizing: border-box;
+}
