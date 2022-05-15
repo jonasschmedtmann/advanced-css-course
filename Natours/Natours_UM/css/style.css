@@ -8,20 +8,33 @@ Dark green: #28b485
 */
 
 /*Resetting the css */
-*{
+*,
+*::after,
+*::before{
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*So that the border/padding is not added to the 
-    total width of the box */
+    box-sizing: inherit;/*By default box-sizing prpoerty is not inherited, this enables this property
+    to be inherited */ 
+}
+
+html{
+    font-size: 62.5%; /*We are setting the font-size at the root so that now, we will have
+    1rem = default_browser_font_size, and can style all the other elements accordingly */
+    /*Here we give the value in % and not in hardcoded pixels as giving the value in % will ensure
+    that the size is relative to the font-size provided by the browser(regardless of wether the user
+    zooms in/out etc.)*/
+
 }
 
 body{
     font-family: "Lato",sans-serif; /*Setting global font */
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.7; /*1.7x the default height */
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;/*So that the border/padding is not added to the 
+    total width of the box */
 }
 
 .header{
@@ -42,26 +55,26 @@ body{
     /*The parent of an absolute div should be relative, because otherwise,
     we will not know from where to calculate top,left,right,bottom */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo{
-    height: 35px; 
+    height: 3.5rem; 
 }
 
 .heading-primary{
         color: #fff;
         text-transform: uppercase;
         backface-visibility: hidden;
-        margin-bottom: 50px;
+        margin-bottom: 5rem;
 }
 
 .heading-primary-main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-delay: 0.4s; /*Before animation starts it will wait 3 seconds */
@@ -72,19 +85,22 @@ body{
     end slower  etc*/
     /*We can also write such custom functions using cubic bezier funcitons
     instead of the predefined ones like ease-in, ease-out etc)*/
+    animation-fill-mode: backwards;
 }
 
 .heading-primary-sub{
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 14.4px;
+    letter-spacing: 1.5rem;
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-delay: 0.4s;
     animation-timing-function: ease-out;
+    
     /*Shorthand for animation
     animation: moveInRight 1s ease-out*/
+    animation-fill-mode: backwards;
 }
 
 .text-box{
@@ -100,12 +116,12 @@ body{
 @keyframes moveInLeft {
     0%{/*How element should look like before start of animation */
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     75%{
         /*How element should look like when 75% of animation is done */
-        transform: translateX(20px);
+        transform: translateX(2rem);
     }
 
     100%{/*How element should look like at the end of animation */
@@ -117,10 +133,10 @@ body{
 @keyframes moveInRight {
     0%{
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     75%{
-        transform: translateX(-20px);
+        transform: translateX(-2rem);
     }
     100%{
         opacity: 1;
@@ -131,11 +147,11 @@ body{
 
 @keyframes moveUp {
     0%{
-        transform: translateY(100px);
+        transform: translateY(10rem);
         opacity: 0;
     }
     75%{
-        transform: translateY(-10px);
+        transform: translateY(-1rem);
     }
     100%{
         transform: translate(0);
@@ -148,13 +164,13 @@ body{
 {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
     /*Always give display as inline block when you want to give the element
     height,width, padding etc. otherwise it may overlap with other elements */
     /*Also an inline block element is treated like a text, and if we use the 
     text-align property in its parent, then it will align this element easily */
-    border-radius: 100px; /*We can put any high number to get a rounded element */
+    border-radius: 10rem; /*We can put any high number to get a rounded element */
 
     transition: all 0.2s; /*Specifies which property to apply transition to and the duration */
     /*The transitiion must be specified in the initial state */
@@ -163,15 +179,15 @@ body{
 }   
 
 .btn:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
     
 }
 
 .btn:active{
     /*On click*/
     transform: translateY(-1px);/*Relative to the initial state */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
 }
 
 .btn-white{
@@ -190,7 +206,7 @@ body{
     in terms of that element */
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
