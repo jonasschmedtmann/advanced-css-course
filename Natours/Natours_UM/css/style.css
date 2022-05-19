@@ -51,7 +51,7 @@ body{
 
 }
 
-.logo-box{
+.header__logo-box{
     /*The parent of an absolute div should be relative, because otherwise,
     we will not know from where to calculate top,left,right,bottom */
     position: absolute;
@@ -59,7 +59,7 @@ body{
     left: 4rem;
 }
 
-.logo{
+.header__logo{
     height: 3.5rem; 
 }
 
@@ -70,7 +70,7 @@ body{
         margin-bottom: 5rem;
 }
 
-.heading-primary-main{
+.heading-primary--main{
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -88,7 +88,7 @@ body{
     animation-fill-mode: backwards;
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -103,7 +103,7 @@ body{
     animation-fill-mode: backwards;
 }
 
-.text-box{
+.header__text-box{
     /*Centering the element to the center of the div */
     position: absolute;
     top:40%;
@@ -190,7 +190,7 @@ body{
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
 }
 
-.btn-white{
+.btn--white{
     background-color: white;
     color: #777;
     
@@ -215,7 +215,7 @@ body{
     we specify transition here */
 }
 
-.btn-white::after{
+.btn--white::after{
     background-color: white;
     color: #777;
     
@@ -228,7 +228,7 @@ body{
     
 }
 
-.btn-animated{
+.btn--animated{
     animation: moveUp 1s ease-out 0.75s;
     animation-fill-mode: backwards; /*Will automatically apply the styles
     corresponding to '0%' before the animation starts */
