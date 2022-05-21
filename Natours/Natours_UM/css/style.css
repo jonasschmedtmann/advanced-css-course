@@ -6,89 +6,82 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /*Resetting the css */
-*,
-*::after,
-*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;/*By default box-sizing prpoerty is not inherited, this enables this property
-    to be inherited */ 
-}
+*::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*By default box-sizing prpoerty is not inherited, this enables this property
+    to be inherited */ }
 
-html{
-    font-size: 62.5%; /*We are setting the font-size at the root so that now, we will have
+html {
+  font-size: 62.5%;
+  /*We are setting the font-size at the root so that now, we will have
     1rem = default_browser_font_size, and can style all the other elements accordingly */
-    /*Here we give the value in % and not in hardcoded pixels as giving the value in % will ensure
+  /*Here we give the value in % and not in hardcoded pixels as giving the value in % will ensure
     that the size is relative to the font-size provided by the browser(regardless of wether the user
-    zooms in/out etc.)*/
+    zooms in/out etc.)*/ }
 
-}
+body {
+  font-family: "Lato", sans-serif;
+  /*Setting global font */
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  /*1.7x the default height */
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+  /*So that the border/padding is not added to the 
+    total width of the box */ }
 
-body{
-    font-family: "Lato",sans-serif; /*Setting global font */
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 1.7; /*1.7x the default height */
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box;/*So that the border/padding is not added to the 
-    total width of the box */
-}
-
-.header{
-    
-    height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801),rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
-    background-size: cover; /*Will fit image to width of viewport */
-    background-position: top; /*Regardless of the size of the viewport, the top
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
+  background-size: cover;
+  /*Will fit image to width of viewport */
+  background-position: top;
+  /*Regardless of the size of the viewport, the top
     of the image will always be in the top of the container and will not
     get cropped */
-    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%); /*Specifying which shape of the image is to
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*Specifying which shape of the image is to
     be kept visible, the remaining will be cut out */
-    position: relative;
-
-}
-
-.header__logo-box{
+  position: relative; }
+  .header__logo-box {
     /*The parent of an absolute div should be relative, because otherwise,
-    we will not know from where to calculate top,left,right,bottom */
+        we will not know from where to calculate top,left,right,bottom */
     position: absolute;
     top: 4rem;
-    left: 4rem;
-}
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
 
-.header__logo{
-    height: 3.5rem; 
-}
-
-.heading-primary{
-        color: #fff;
-        text-transform: uppercase;
-        backface-visibility: hidden;
-        margin-bottom: 5rem;
-}
-
-.heading-primary--main{
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 5rem; }
+  .heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
-    animation-delay: 0.4s; /*Before animation starts it will wait 3 seconds */
-    animation-iteration-count: 1; /*No of times an animation will occur*/
-    animation-timing-function: ease-out ; /*Specifies how an animation should be
-    carried out */
+    animation-delay: 0.4s;
+    /*Before animation starts it will wait 3 seconds */
+    animation-iteration-count: 1;
+    /*No of times an animation will occur*/
+    animation-timing-function: ease-out;
+    /*Specifies how an animation should be
+        carried out */
     /*eg: In ease in the animation will start slower, In ease out, the animation will
-    end slower  etc*/
+        end slower  etc*/
     /*We can also write such custom functions using cubic bezier funcitons
-    instead of the predefined ones like ease-in, ease-out etc)*/
-    animation-fill-mode: backwards;
-}
-
-.heading-primary--sub{
+        instead of the predefined ones like ease-in, ease-out etc)*/
+    animation-fill-mode: backwards; }
+  .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -97,139 +90,117 @@ body{
     animation-duration: 1s;
     animation-delay: 0.4s;
     animation-timing-function: ease-out;
-    
     /*Shorthand for animation
-    animation: moveInRight 1s ease-out*/
-    animation-fill-mode: backwards;
-}
+        animation: moveInRight 1s ease-out*/
+    animation-fill-mode: backwards; }
 
-.header__text-box{
-    /*Centering the element to the center of the div */
-    position: absolute;
-    top:40%;
-    left: 50%;
-    /* background-color: red; */
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
+.header__text-box {
+  /*Centering the element to the center of the div */
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* background-color: red; */
+  transform: translate(-50%, -50%);
+  text-align: center; }
 
 @keyframes moveInLeft {
-    0%{/*How element should look like before start of animation */
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    75%{
-        /*How element should look like when 75% of animation is done */
-        transform: translateX(2rem);
-    }
-
-    100%{/*How element should look like at the end of animation */
-        opacity: 1;
-        transform: translate(0);/*Bringing to default location */
-    }
-}
+  0% {
+    /*How element should look like before start of animation */
+    opacity: 0;
+    transform: translateX(-10rem); }
+  75% {
+    /*How element should look like when 75% of animation is done */
+    transform: translateX(2rem); }
+  100% {
+    /*How element should look like at the end of animation */
+    opacity: 1;
+    transform: translate(0);
+    /*Bringing to default location */ } }
 
 @keyframes moveInRight {
-    0%{
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    75%{
-        transform: translateX(-2rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-    
-}
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  75% {
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveUp {
-    0%{
-        transform: translateY(10rem);
-        opacity: 0;
-    }
-    75%{
-        transform: translateY(-1rem);
-    }
-    100%{
-        transform: translate(0);
-        opacity: 1;
-    }
-}
+  0% {
+    transform: translateY(10rem);
+    opacity: 0; }
+  75% {
+    transform: translateY(-1rem); }
+  100% {
+    transform: translate(0);
+    opacity: 1; } }
 
-.btn:link, /*Default styling of the link */
-.btn:visited /*User has already clicked a link */
-{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    /*Always give display as inline block when you want to give the element
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  /*Always give display as inline block when you want to give the element
     height,width, padding etc. otherwise it may overlap with other elements */
-    /*Also an inline block element is treated like a text, and if we use the 
+  /*Also an inline block element is treated like a text, and if we use the 
     text-align property in its parent, then it will align this element easily */
-    border-radius: 10rem; /*We can put any high number to get a rounded element */
+  border-radius: 10rem;
+  /*We can put any high number to get a rounded element */
+  transition: all 0.2s;
+  /*Specifies which property to apply transition to and the duration */
+  /*The transitiion must be specified in the initial state */
+  position: relative;
+  /*So that its pseudo element can be absolutely placed behind it */ }
 
-    transition: all 0.2s; /*Specifies which property to apply transition to and the duration */
-    /*The transitiion must be specified in the initial state */
-    position: relative; /*So that its pseudo element can be absolutely placed behind it */
-    
-}   
+.btn:hover {
+  transform: translateY(-1rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /*Shadow ofset in x Shadow offset in y Blur color*/ }
 
-.btn:hover{
-    transform: translateY(-1rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
-    
-}
+.btn:active {
+  /*On click*/
+  transform: translateY(-1px);
+  /*Relative to the initial state */
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  /*Shadow ofset in x Shadow offset in y Blur color*/ }
 
-.btn:active{
-    /*On click*/
-    transform: translateY(-1px);/*Relative to the initial state */
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2); /*Shadow ofset in x Shadow offset in y Blur color*/
-}
+.btn::after {
+  /*We are putting this pseudo element over the actual element, and when
+        we hover out of the element then this will go behind the actual element */
+  content: "";
+  /*Necessary property for after */
+  display: inline-block;
+  /*Necessary property for after */
+  /*Pseudo elements are treated like the child of the actual element,
+        like in this case the btn element, so we can specify height and width 
+        in terms of that element */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+  /*Since this is the initial state for btn:hover::after,
+        we specify transition here */ }
 
-.btn--white{
+.btn:hover::after {
+  /*The style that is to be applied after we have button in hover state*/
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
+
+.btn--white {
+  background-color: white;
+  color: #777; }
+  .btn--white::after {
     background-color: white;
-    color: #777;
-    
-}
+    color: #777; }
 
-.btn::after{
-    /*We are putting this pseudo element over the actual element, and when
-    we hover out of the element then this will go behind the actual element */
-    content: ""; /*Necessary property for after */
-    display: inline-block; /*Necessary property for after */
-    /*Pseudo elements are treated like the child of the actual element,
-    like in this case the btn element, so we can specify height and width 
-    in terms of that element */
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s; /*Since this is the initial state for btn:hover::after,
-    we specify transition here */
-}
-
-.btn--white::after{
-    background-color: white;
-    color: #777;
-    
-}
-
-.btn:hover::after{
-    /*The style that is to be applied after we have button in hover state*/
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-    
-}
-
-.btn--animated{
-    animation: moveUp 1s ease-out 0.75s;
-    animation-fill-mode: backwards; /*Will automatically apply the styles
-    corresponding to '0%' before the animation starts */
-}
+.btn--animated {
+  animation: moveUp 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /*Will automatically apply the styles
+        corresponding to '0%' before the animation starts */ }
