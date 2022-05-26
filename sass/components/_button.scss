@@ -1,0 +1,91 @@
+.btn {
+    &:link,
+    /*Default styling of the link */
+    &:visited
+    /*User has already clicked a link */
+        {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        /*Always give display as inline block when you want to give the element
+    height,width, padding etc. otherwise it may overlap with other elements */
+        /*Also an inline block element is treated like a text, and if we use the 
+    text-align property in its parent, then it will align this element easily */
+        border-radius: 10rem;
+        /*We can put any high number to get a rounded element */
+
+        transition: all 0.2s;
+        /*Specifies which property to apply transition to and the duration */
+        /*The transitiion must be specified in the initial state */
+        position: relative;
+        /*So that its pseudo element can be absolutely placed behind it */
+
+    }
+    &:hover {
+        transform: translateY(-1rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        /*Shadow ofset in x Shadow offset in y Blur color*/
+    
+    }
+    
+    &:active {
+        /*On click*/
+        transform: translateY(-1px);
+        /*Relative to the initial state */
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+        /*Shadow ofset in x Shadow offset in y Blur color*/
+    }
+
+    &::after {
+        /*We are putting this pseudo element over the actual element, and when
+        we hover out of the element then this will go behind the actual element */
+        content: "";
+        /*Necessary property for after */
+        display: inline-block;
+        /*Necessary property for after */
+        /*Pseudo elements are treated like the child of the actual element,
+        like in this case the btn element, so we can specify height and width 
+        in terms of that element */
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+        /*Since this is the initial state for btn:hover::after,
+        we specify transition here */
+    }
+
+    &:hover::after {
+        /*The style that is to be applied after we have button in hover state*/
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    
+    }
+
+    &--white {
+        background-color: white;
+        color: $color-dark-grey;
+    
+        &::after {
+            background-color: white;
+            color: $color-dark-grey;
+        
+        }
+    }   
+    
+    &--animated {
+        animation: moveUp 1s ease-out 0.75s;
+        animation-fill-mode: backwards;
+        /*Will automatically apply the styles
+        corresponding to '0%' before the animation starts */
+    }
+    
+    
+
+}
+
+

@@ -1,0 +1,40 @@
+//base.scss contains all the base configurations such as resetting the default css, html, body stylings etc.
+//This file will be a partial so that it can be imported to larger files
+
+* {
+
+    &::after,
+    &::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+        /*By default box-sizing prpoerty is not inherited, this enables this property
+    to be inherited */
+    }
+
+}
+
+html {
+    //This defines how much 1 rem is
+    font-size: 62.5%;
+    /*We are setting the font-size at the root so that now, we will have
+    1rem = default_browser_font_size, and can style all the other elements accordingly */
+    /*Here we give the value in % and not in hardcoded pixels as giving the value in % will ensure
+    that the size is relative to the font-size provided by the browser(regardless of wether the user
+    zooms in/out etc.)*/
+
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    /*Setting global font */
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    /*1.7x the default height */
+    color: $color-dark-grey;
+    padding: 3rem;
+    box-sizing: border-box;
+    /*So that the border/padding is not added to the 
+    total width of the box */
+}

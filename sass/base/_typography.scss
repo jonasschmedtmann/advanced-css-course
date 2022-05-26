@@ -1,0 +1,42 @@
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 5rem;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-delay: 0.4s;
+        /*Before animation starts it will wait 3 seconds */
+        animation-iteration-count: 1;
+        /*No of times an animation will occur*/
+        animation-timing-function: ease-out;
+        /*Specifies how an animation should be
+        carried out */
+        /*eg: In ease in the animation will start slower, In ease out, the animation will
+        end slower  etc*/
+        /*We can also write such custom functions using cubic bezier funcitons
+        instead of the predefined ones like ease-in, ease-out etc)*/
+        animation-fill-mode: backwards;
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.5rem;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-delay: 0.4s;
+        animation-timing-function: ease-out;
+    
+        /*Shorthand for animation
+        animation: moveInRight 1s ease-out*/
+        animation-fill-mode: backwards;
+    }
+}

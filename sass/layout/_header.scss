@@ -1,0 +1,46 @@
+.header {
+
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801)), url(../img/hero.jpg);
+    background-size: cover;
+    /*Will fit image to width of viewport */
+    background-position: top;
+    /*Regardless of the size of the viewport, the top
+    of the image will always be in the top of the container and will not
+    get cropped */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /*Specifying which shape of the image is to
+    be kept visible, the remaining will be cut out */
+    position: relative;
+
+    &__logo-box {
+        /*The parent of an absolute div should be relative, because otherwise,
+        we will not know from where to calculate top,left,right,bottom */
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    
+}
+
+
+
+
+
+
+.header__text-box {
+    /*Centering the element to the center of the div */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* background-color: red; */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+

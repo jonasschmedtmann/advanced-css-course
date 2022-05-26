@@ -1,0 +1,52 @@
+@keyframes moveInLeft {
+    0% {
+        /*How element should look like before start of animation */
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    75% {
+        /*How element should look like when 75% of animation is done */
+        transform: translateX(2rem);
+    }
+
+    100% {
+        /*How element should look like at the end of animation */
+        opacity: 1;
+        transform: translate(0);
+        /*Bringing to default location */
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    75% {
+        transform: translateX(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+
+    75% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
