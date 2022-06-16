@@ -204,3 +204,33 @@ body {
   /* background-color: red; */
   transform: translate(-50%, -50%);
   text-align: center; }
+
+.row {
+  max-width: 71.25rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 5rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 3.75rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 3.75rem)/2); }
+  .row .col-1-of-3 {
+    width: calc((100% - (3.75rem * 2))/3); }
+  .row .col-1-of-4 {
+    width: calc((100% - (3.75rem * 3))/4); }
+  .row .col-2-of-3 {
+    width: calc(2*((100% - 2 * 3.75rem) / 3) + 3.75rem); }
+  .row .col-2-of-4 {
+    /*One way is to take full width - 2gutters - 2* col-1 of 4 */
+    /*Another way is 2*col-1-of-4 +1 gutter width */
+    width: calc((2*((100% - (3.75rem * 3)) / 4)) + (3.75rem)); }
+  .row .col-3-of-4 {
+    width: calc((3*((100% - (3.75rem * 3)) / 4)) + (2 * 3.75rem)); }
