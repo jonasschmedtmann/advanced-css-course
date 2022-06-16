@@ -1,0 +1,75 @@
+.float-grid-test{}
+
+.row{
+    max-width: $grid-width; //By modern conventions we set rwo width to 1140px.(We have already set 1rem=default browser font size)
+    background-color: #eee;
+    margin: 0 auto; //We use this to center row. This trick is used to center a block element inside another
+    //block element
+   
+
+    &:not(:last-child){ //Apply style to all the rows except the last one
+        margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [alt="Logo"]{
+        //This is an example of an attribute selector
+        //This will select all the elements that have the alt attribute equal to Logo
+    }
+
+    [class^="col-"]{
+        //^= =>Will all select all elements whose class attribute 'starts with' col-
+        //Similarly *= will select all elements whose class attribute contains col-
+        //Similarly $= will select all elements whose class attribute ends with col-
+        background-color: orangered;
+        float:left;
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2{
+        width: calc((100% - #{$gutter-horizontal})/2); //calc() allows us to do all kinds of math operations
+        //Sass also has certain methods for calculation, but unlike calc(), which is a css feature,
+        //sass functions will have to be compiled before knowing what layout will be rendered
+        //calc on the other hand will know the layout first and then make calculations based on that
+        //layout
+        //calc() can thus also combine different types of units, %,em,rem etc.
+        //We need to use #{} to use sass variables inside the calc()
+        //*Note: There needs to be space before and after the '-' sign
+       
+    }
+
+    .col-1-of-3{
+        width: calc((100% - (#{$gutter-horizontal} * 2))/3);
+        
+        
+    }
+
+    .col-1-of-4{
+        width: calc((100% - (#{$gutter-horizontal} * 3))/4);
+        
+        
+    }
+
+    .col-2-of-3{
+        width: calc(2*((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+        
+    }
+
+    .col-2-of-4{
+        /*One way is to take full width - 2gutters - 2* col-1 of 4 */
+        // width: calc((100% - (#{$gutter-horizontal} * 2)) - 2*((100% - (#{$gutter-horizontal} * 3))/4));
+
+        /*Another way is 2*col-1-of-4 +1 gutter width */
+        width: calc((2*((100% - (#{$gutter-horizontal} * 3)) / 4)) + (#{$gutter-horizontal}));
+    }
+
+    .col-3-of-4{
+        width: calc((3*((100% - (#{$gutter-horizontal} * 3)) / 4)) + (2 * #{$gutter-horizontal}));
+    }
+}
+
+
+
