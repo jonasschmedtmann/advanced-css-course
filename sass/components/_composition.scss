@@ -1,0 +1,38 @@
+.composition{
+    position: relative;
+    &__photo{
+        width: 55%; 
+        box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.4);
+        border-radius: 2px;
+        position: absolute;
+        transition: all 0.2s;
+        outline-offset: 2rem; //To give space between border(outline) and content
+
+        &--p1{
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2{
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3{
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover{
+            outline: 1.5rem solid $color-primary; //Using this instead of border to use outline-offset
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+    }
+
+    &:hover &__photo:not(:hover){
+        //Selecting entire div then the photos which are not hovered
+        transform: scale(0.9);
+    }
+}

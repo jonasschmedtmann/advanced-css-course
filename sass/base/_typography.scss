@@ -57,3 +57,17 @@
         letter-spacing: 2px;
     }
 }
+
+.heading-tertiary{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.description{
+    font-size: $default-font-size;
+    text-align: justify;
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+}

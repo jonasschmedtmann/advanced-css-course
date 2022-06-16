@@ -88,4 +88,27 @@
 
 }
 
+.btn-text{
+    &:link,
+    &:visited{
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+    }
+    &:hover{
+        background-color: $color-primary;
+        color: white;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+        transition: all 0.2s;
+    }
+    &:active{
+        box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.15);
+        transform: translateY(0);
+    }
+}
+
 
