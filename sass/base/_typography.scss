@@ -40,3 +40,20 @@
         animation-fill-mode: backwards;
     }
 }
+
+.heading-secondary{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block; /*Now the width will be only as much as the text content, if block then it will take the whole row */
+    background-clip: text; /*This will clip the background image only where text is present */
+    color: transparent; /*This will allow us to see the background image behind the text */
+
+    &:hover{
+        transform: skewY(2deg) skewX(5deg) scale(1.1);
+        text-transform: 0.5rem 1rem 2rem rgba(0,0,0,0.2);
+        transition: all 0.2s;
+        letter-spacing: 2px;
+    }
+}

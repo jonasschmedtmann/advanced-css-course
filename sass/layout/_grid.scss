@@ -2,7 +2,7 @@
 
 .row{
     max-width: $grid-width; //By modern conventions we set rwo width to 1140px.(We have already set 1rem=default browser font size)
-    background-color: #eee;
+    // background-color: #eee; //Can enable color to better see grid
     margin: 0 auto; //We use this to center row. This trick is used to center a block element inside another
     //block element
    
@@ -22,7 +22,7 @@
         //^= =>Will all select all elements whose class attribute 'starts with' col-
         //Similarly *= will select all elements whose class attribute contains col-
         //Similarly $= will select all elements whose class attribute ends with col-
-        background-color: orangered;
+        // background-color: orangered; //Can add color to see grid easily
         float:left;
         &:not(:last-child){
             margin-right: $gutter-horizontal;

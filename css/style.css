@@ -106,6 +106,29 @@ body {
         animation: moveInRight 1s ease-out*/
     animation-fill-mode: backwards; }
 
+.heading-secondary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  /*Now the width will be only as much as the text content, if block then it will take the whole row */
+  background-clip: text;
+  /*This will clip the background image only where text is present */
+  color: transparent;
+  /*This will allow us to see the background image behind the text */ }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(5deg) scale(1.1);
+    text-transform: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    letter-spacing: 2px; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -206,8 +229,7 @@ body {
   text-align: center; }
 
 .row {
-  max-width: 71.25rem;
-  background-color: #eee;
+  max-width: 85rem;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 5rem; }
@@ -216,7 +238,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 3.75rem; }
@@ -234,3 +255,10 @@ body {
     width: calc((2*((100% - (3.75rem * 3)) / 4)) + (3.75rem)); }
   .row .col-3-of-4 {
     width: calc((3*((100% - (3.75rem * 3)) / 4)) + (2 * 3.75rem)); }
+
+/* This file will contain styles specific to the home page of the application */
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh;
+  /*header height(95vh)-polygon height till it was cut(75vh)*/ }

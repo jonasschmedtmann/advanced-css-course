@@ -1,0 +1,10 @@
+//This file will contain all the helper reusable classes such as centering elements, spacing, margins etc.
+
+.u-center-text{
+    text-align: center;//This property will work if the parent is a block and child is an inline block
+    //So basically this will center the child within the parent i.e. the row in this case
+}
+
+.u-margin-bottom-8{
+    margin-bottom: 8rem;
+}
