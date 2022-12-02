@@ -17,6 +17,7 @@ Dark green: #28b485
 
 html {
     font-size: 62.5%;
+    /* font-size: 10px; */
 }
 
 body {
@@ -125,7 +126,7 @@ body {
     text-decoration: none;
     padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 10rem;
+    border-radius: 100px;
     transition: all 0.2s;
     position: relative;
 }
@@ -137,7 +138,7 @@ body {
 
 .btn:active {
     transform: translateY(-0.1rem);
-    box-shadow: 0 5rem 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
