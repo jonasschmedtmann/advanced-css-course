@@ -78,11 +78,27 @@ body {
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1); }
 
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
 .u-center-text {
   text-align: center; }
 
-.u-margin-bottom-8 {
+.u-margin-bottom-big {
   margin-bottom: 8rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -148,7 +164,6 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
@@ -157,7 +172,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col"]:not(:last-child) {
       margin-right: 6rem; }
