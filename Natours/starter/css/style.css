@@ -167,11 +167,10 @@ body {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 50rem; }
+  height: 52rem; }
   .card__side {
-    color: white;
     font-size: 2rem;
-    height: 50rem;
+    height: 52rem;
     transition: all 0.8s ease;
     position: absolute;
     top: 0;
@@ -179,6 +178,7 @@ body {
     width: 100%;
     backface-visibility: hidden;
     border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
     .card__side--front {
       background-color: #FFF; }
@@ -190,6 +190,42 @@ body {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0deg); }
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to bottom right, #ffb900, #ff7730), url(../img/nat-5.jpg); }
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: #FFF;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; }
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to bottom right, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
 
 .composition {
   position: relative; }
@@ -241,6 +277,7 @@ body {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
   .header__logo-box {
