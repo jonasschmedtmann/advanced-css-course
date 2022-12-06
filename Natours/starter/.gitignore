@@ -1,5 +1,5 @@
 *.DS_Store
-
+*.vscode/
 log*
 yarn-error.log*
 lerna-debug.log*
