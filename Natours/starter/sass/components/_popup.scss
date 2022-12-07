@@ -6,6 +6,9 @@
     left: 0;
     background-color: rgba($color-black, 0.8);
     z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
 
     &__content {
         @include absCenter;
@@ -15,6 +18,9 @@
         border-radius: 3px;
         display: table;
         overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition: all 0.5s 0.2s;
     }
 
     &__left {
@@ -46,10 +52,40 @@
         column-count: 2;
         column-gap: 4rem;
         column-rule: 1px solid $color-grey-light-2;
-        
+
         -moz-hyphens: auto;
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
     }
+
+    &:target {
+        opacity: 1;
+        visibility: visible
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute;
+            top: 2rem;
+            right: 5rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            font-size: 3rem;
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    
 }
