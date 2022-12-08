@@ -7,9 +7,13 @@
 }
 
 .header {
+    font-size: 1.4rem;
     height: 7rem;
     background-color: #FFF;;
     border-bottom: var(--color-grey-light-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .content {
@@ -22,6 +26,6 @@
 }
 
 .hotel-view {
-    background-color: #FFF;
+    background-color: blueviolet;
     flex: 1;
 }
