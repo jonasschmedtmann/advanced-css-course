@@ -46,8 +46,8 @@
         }
 
         @include respond(phone) {
-            top: 3rem;
-            right: 3rem;
+            top: 3.5rem;
+            right: 3.5rem;
         }
     }
 
@@ -69,10 +69,18 @@
         transform: translate(-50%, -50%);
         list-style: none;
         text-align: center;
+
+        @include respond(phone) {
+            width: 80%;
+        }
     }
 
     &__item {
         margin: 1.5rem;
+
+        @include respond(phone) {
+            margin: 0.5rem;
+        }        
 
     }
 
@@ -89,6 +97,10 @@
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
             background-size: 220%;
             transition: all 0.4s;
+    
+            @include respond(phone) {
+                font-size: 2rem;
+            }
 
             span {
                 margin-right: 1.5rem;
@@ -105,7 +117,7 @@
     }
 
     &__checkbox:checked ~ &__background {
-        transform: scale(100);
+        transform: scale(40);
     }
 
     &__checkbox:checked ~ &__nav {
