@@ -1,7 +1,7 @@
 {
-  "name": "natours",
+  "name": "trillo",
   "version": "1.0.0",
-  "description": "Landing page for natours",
+  "description": "Landing page for Trillo",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
@@ -14,13 +14,9 @@
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
   },
-  "author": "Jonas",
+  "author": "Manuel H. Canas",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
-    "concat": "^1.0.3",
-    "node-sass": "^4.5.3",
-    "npm-run-all": "^4.1.1",
-    "postcss-cli": "^4.1.1"
+    "node-sass": "^8.0.0"
   }
 }

@@ -16,6 +16,16 @@
         box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
         text-align: center;
         cursor: pointer;
+
+        @include respond(tab-port) {
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone) {
+            top: 3rem;
+            right: 3rem;
+        }
         
     }
 
@@ -29,6 +39,16 @@
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
         z-index: 100;
         transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        @include respond(tab-port) {
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
 
     &__nav {
@@ -49,10 +69,18 @@
         transform: translate(-50%, -50%);
         list-style: none;
         text-align: center;
+
+        @include respond(phone) {
+            width: 80%;
+        }
     }
 
     &__item {
         margin: 1.5rem;
+
+        @include respond(phone) {
+            margin: 0.5rem;
+        }        
 
     }
 
@@ -69,6 +97,10 @@
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
             background-size: 220%;
             transition: all 0.4s;
+    
+            @include respond(phone) {
+                font-size: 2rem;
+            }
 
             span {
                 margin-right: 1.5rem;
@@ -85,7 +117,7 @@
     }
 
     &__checkbox:checked ~ &__background {
-        transform: scale(100);
+        transform: scale(40);
     }
 
     &__checkbox:checked ~ &__nav {
