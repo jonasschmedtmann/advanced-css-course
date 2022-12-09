@@ -10,7 +10,7 @@
     font-size: 1.4rem;
     height: 7rem;
     background-color: #FFF;;
-    border-bottom: var(--color-grey-light-2);
+    border-bottom: 1px solid var(--color-grey-light-2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +29,6 @@
 }
 
 .hotel-view {
-    background-color: blueviolet;
     flex: 1;
     height: 80rem;
 }
