@@ -130,6 +130,18 @@ body {
 	}
 }
 
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
 .btn:link,
 .btn:visited {
 	text-transform: uppercase;
@@ -190,4 +202,11 @@ body {
 
 	/* sets the animation to invisible: */
 	opacity: 0;
+}
+
+.btn-animated {
+	animation: moveInBottom 2s ease-out .75;
+
+	/* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
+	animation-fill-mode: backwards;
 }
