@@ -8,17 +8,35 @@ Dark green: #28b485
 */
 
 /* BASIC RESET */
-* {
+*,
+::after,
+::before {
+	/* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+
+	/* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
+	box-sizing: inherit;
+}
+
+html {
+	/* 1 rem === 10px */
+	/* font-size: 10px; */
+	
+	/* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+	/* do this so it is based on whatever user has selected in browser */
+	font-size: 62.5%;
 }
 
 body {
-	padding: 30px;
+	box-sizing: border-box;
+	padding: 3rem;
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
-	font-size: 16px;
+
+	/* putting root font size in html instead */
+	/* font-size: 16px; */
+
 	line-height: 1.7;
 	color: #777;
 }
@@ -41,12 +59,12 @@ body {
 /* position: relative; here is the reference from where the child absolute counts from top and left  */
 .logo-box {
 	position: absolute;
-	top: 40px;
-	left: 40px;
+	top: 4rem;
+	left: 4rem;
 }
 
 .logo {
-	height: 35px;
+	height: 3.5rem;
 }
 
 .text-box {
@@ -63,14 +81,14 @@ body {
 
 	/* below is the "fix" for the odd little shake of the animation at end. weird. */
 	backface-visibility: hidden;
-	margin-bottom: 60px;
+	margin-bottom: 6rem;
 }
 
 .heading-primary-main {
 	display: block;
-	font-size: 60px;
+	font-size: 6rem;
 	font-weight: 400;
-	letter-spacing: 35px;
+	letter-spacing: 3.5rem;
 
 	animation-name: moveInRight;
 	animation-duration: 2s;
@@ -87,9 +105,9 @@ body {
 
 .heading-primary-sub {
 	display: block;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: 700;
-	letter-spacing: 17.4px;
+	letter-spacing: 1.75rem;
 
 	/* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
 	animation: moveInLeft 2s ease-out;
@@ -99,12 +117,12 @@ body {
 	/* want to go from left to right so NEGATIVE value means comes from the left and POSTIVE value means goes to the right */
 	0% {
 		opacity: 0;
-		transform: translateX(-100px);
+		transform: translateX(-10rem);
 	}
 
 	/* this 80% makes it go to the right a bit before settling into place */
 	80% {
-		transform: translateX(10px);
+		transform: translateX(1rem);
 	}
 	
 	100% {
@@ -116,12 +134,12 @@ body {
 @keyframes moveInRight {
 	0% {
 		opacity: 0;
-		transform: translateX(100px);
+		transform: translateX(10rem);
 	}
 
 	/* this 80% makes it go to the LEFT a bit before settling into place */
 	80% {
-		transform: translateX(-10px);
+		transform: translateX(-1rem);
 	}
 	
 	100% {
@@ -133,7 +151,7 @@ body {
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateY(3rem);
 	}
 	
 	100% {
@@ -144,11 +162,14 @@ body {
 
 .btn:link,
 .btn:visited {
+	/* needed to add font-size here after REM conversion: */
+	font-size: 1.6rem;
+	
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 15px 40px;
+	padding: 1.5rem 4rem;
 	display: inline-block;
-	border-radius: 100px;
+	border-radius: 10rem;
 	/* transition: always go in the INITIAL state, just the way it is... */
 	transition: all .2s;
 	/* the below is set for the ::after pseudo element animation to work */
@@ -159,14 +180,14 @@ body {
 	/* to move UP, it is a negative value ie page flows from top to bottom */
 	transform: translateY(-3px);
 	/* x value, y value blur color of shadow */
-	box-shadow: 0 10px 20px rgba(0,0,0,.2);
+	box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
 	/* moves btn a bit down onclick */
 	transform: translateY(-1px);
 	/* want the shadow to look smaller onclick, hence give the user the impression it is CLOSER to page and FURTHER away from user, less blur too */
-	box-shadow: 0 5px 10px rgba(0,0,0,.2);
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
@@ -179,7 +200,7 @@ body {
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	border-radius: 100px;
+	border-radius: 10rem;
 	/* the below code is what actually puts it BEHIND the button, else it just looks giant (underneath) */
 	position: absolute;
 	top: 0;
