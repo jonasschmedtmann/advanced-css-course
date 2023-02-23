@@ -1,0 +1,232 @@
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-grey-white: #fff;
+
+/* BASIC RESET */
+*,
+::after,
+::before {
+	/* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
+	margin: 0;
+	padding: 0;
+
+	/* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
+	box-sizing: inherit;
+}
+
+html {
+	/* 1 rem === 10px */
+	/* font-size: 10px; */
+
+	/* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+	/* do this so it is based on whatever user has selected in browser */
+	font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+	padding: 3rem;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+
+	/* putting root font size in html instead */
+	/* font-size: 16px; */
+
+	line-height: 1.7;
+	color: $color-grey-dark;
+}
+
+.header {
+	height: 95vh;
+	background-image: linear-gradient(to right bottom,
+			rgba($color-primary-light, 0.801),
+			rgba($color-primary-dark, 0.809)),
+		url(../img/hero.jpg);
+	background-size: cover;
+	background-position: top;
+	position: relative;
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+/*  ^^ background-size: cover has image adapt to viewport */
+/* background-position: top image stays to top of container */
+
+/* position: relative; here is the reference from where the child absolute counts from top and left  */
+.header__logo-box {
+	position: absolute;
+	top: 4rem;
+	left: 4rem;
+}
+
+.header__logo {
+	height: 3.5rem;
+}
+
+.header__text-box {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 40%;
+	left: 50%;
+	text-align: center;
+}
+
+.heading-primary {
+	color: $color-grey-white;
+	text-transform: uppercase;
+
+	/* below is the "fix" for the odd little shake of the animation at end. weird. */
+	backface-visibility: hidden;
+	margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+	display: block;
+	font-size: 6rem;
+	font-weight: 400;
+	letter-spacing: 3.5rem;
+
+	animation-name: moveInRight;
+	animation-duration: 2s;
+
+	/* this controls how fast the params in the moveInLeft func are executed */
+	animation-timing-function: ease-out;
+
+	/* number of times and delay */
+
+	/* animation-iteration-count: 3; */
+	/* animation-delay: 2s; */
+
+}
+
+.heading-primary--sub {
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1.75rem;
+
+	/* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
+	animation: moveInLeft 2s ease-out;
+}
+
+@keyframes moveInLeft {
+
+	/* want to go from left to right so NEGATIVE value means comes from the left and POSTIVE value means goes to the right */
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+	}
+
+	/* this 80% makes it go to the right a bit before settling into place */
+	80% {
+		transform: translateX(1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	/* this 80% makes it go to the LEFT a bit before settling into place */
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+.btn:link,
+.btn:visited {
+	/* needed to add font-size here after REM conversion: */
+	font-size: 1.6rem;
+
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	display: inline-block;
+	border-radius: 10rem;
+	/* transition: always go in the INITIAL state, just the way it is... */
+	transition: all .2s;
+	/* the below is set for the ::after pseudo element animation to work */
+	position: relative;
+}
+
+.btn:hover {
+	/* to move UP, it is a negative value ie page flows from top to bottom */
+	transform: translateY(-3px);
+	/* x value, y value blur color of shadow */
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+	/* moves btn a bit down onclick */
+	transform: translateY(-1px);
+	/* want the shadow to look smaller onclick, hence give the user the impression it is CLOSER to page and FURTHER away from user, less blur too */
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.btn--white {
+	background-color: $color-grey-white;
+	color: $color-grey-dark;
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 10rem;
+	/* the below code is what actually puts it BEHIND the button, else it just looks giant (underneath) */
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* this ABSOLUTE positioning needs to have reference (RELATIVE), which is the first element with the RELATIVE position it can find, but needs to be ORIGINAL element (the button) SEE ABOVE*/
+	z-index: -1;
+	/* ^^sets the position of the elements if they are on top of the other, also needed for the ::after to work. the neg 1 puts it behind */
+
+	/* again, transition goes on the initial state here to animate the scale below of the pseudo elem; */
+	transition: all .4s;
+}
+
+.btn--white::after {
+	background-color: #fff;
+}
+
+.btn:hover::after {
+	/* want the element to grow and to fade out...scale just makes it bigger */
+	transform: scaleX(1.4) scaleY(1.6);
+
+	/* sets the animation to invisible: */
+	opacity: 0;
+}
+
+.btn--animated {
+	animation: moveInBottom 2s ease-out .75;
+
+	/* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
+	animation-fill-mode: backwards;
+}
