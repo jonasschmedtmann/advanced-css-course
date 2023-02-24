@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  $color-primary: #f9ed69;   // Yellow
+  $color-secondary: #f08a5d;  // Orange
+  $color-tertiary: #b83b58;  // Pink
+  $color-text-dark: #333;    // Grey
+  $color-text-light: #eee;   // Off-white
+  
+  $width-button: 150px;
+  
+  @mixin clearfix {
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+  
+  @mixin style-link-text($color) {
+    text-transform: uppercase;
+    text-decoration: uppercase;
+    color: $color;
+  }
+  
+  @function divide($a, $b) {
+    @return $a / $b;
+  }
+  
+  nav {
+    margin: divide(60, 2) * 1px;  // All we really want is 30px so this is extra
+    background-color: $color-primary;
+    @include clearfix;
+  }
+  
+  .navigation {
+    list-style: none;
+    float: left;
+    
+    li {
+      display: inline-block;
+      margin-left: 30px;
+      
+      &::first-child {
+        margin: 0;
+      }
+      
+      a:link {
+        @include style-link-text($color-text-dark)
+      }
+    }
+  }
+  
+  .buttons {
+    float: right;
+  }
+  
+  %btn-placeholder {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100px;
+    width: $width-button;
+    @include style-link-text($color-text-light)
+      
+  }
+  
+  .btn-main {
+    &:link {
+      @extend %btn-placeholder;
+       background-color: $color-secondary;
+    }
+    
+    &:hover {
+        background-color: darken($color-secondary, 15%)
+    }
+  }
+  
+  .btn-hot {
+    &:link {
+        @extend %btn-placeholder;
+       background-color: $color-tertiary;
+    }
+    
+    &:hover {
+        background-color: lighten($color-tertiary, 15%)
+    }
+  }

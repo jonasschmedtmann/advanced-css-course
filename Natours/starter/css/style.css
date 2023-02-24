@@ -58,18 +58,18 @@ body {
 }
 
 /* Parent (header) is relative, and so the top and left are calculated by it's position within the parent element*/ 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 35px;
 }
 
 /* To position in center, position using 50%/50% within the parent and then translate back using the element itself */
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -88,7 +88,7 @@ body {
 
 /* Display: block takes up 100% of the width */ 
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -100,7 +100,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -179,7 +179,7 @@ body {
     
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777
 }
@@ -201,7 +201,7 @@ body {
 }
 
 /* Absolute position: needs to have a reference (the first element with a relative position that it can find) */
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
