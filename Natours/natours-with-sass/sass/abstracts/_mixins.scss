@@ -1,0 +1,60 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Media Query Manager
+
+/*
+0-600px: Phone
+600-900px: Tablet portrait
+900-1200px: Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + : Big Desktop
+*/
+
+// @mixin respond-phone {
+//     @media (max-width: 600px) { @content };
+// }
+
+/*
+Breakpoint arguments:
+-phone
+-tab-port
+-tab-land
+-big-desk
+*/
+
+// Order: Base + typography > general layout + grid > page layout > components 
+
+// Ems and Rems in media queries are not affected by a root font size setting
+// 1rem/em in a media query is always equal to the browser's base font size, usually 16px
+// Ems are usually the best option for media queries, as rems can act differently in some browsers
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content };    // 600px
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content };   // 900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content };  // 1200px
+    }
+
+    @if $breakpoint == big-desk {  
+        @media (min-width: 112.5em) { @content };   // 1800px
+    }
+
+}

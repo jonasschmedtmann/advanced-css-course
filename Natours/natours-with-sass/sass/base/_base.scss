@@ -1,0 +1,51 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    // 1 rem = 10px; 10px/16px= 62.5%
+    font-size: 62.5%;
+
+    @media (max-width: 600px) {
+        font-size: 50%;
+    }
+
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    // Unnecessary (redundant with tab-port)
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+    
+    // Media queries: order matters (Large before small in this case)
+    // width of 500 will be selected by both tab-land and tab-port, but we 
+    // only want the styles of tab-port to be applied in the end
+
+    @include respond(big-desktop) {     // width > 1200
+        font-size: 75%; //1rem = 12px; 12/16 = 75%
+    }
+
+    @include respond(tab-land) {    // width < 900
+        font-size: 56.25%; // 1rem = 9px; 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {    // width < 600?
+        font-size: 50%; // 1rem = 8px; 8/16 = 50%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {    // width < 600?
+        padding: 0;
+    }
+}
