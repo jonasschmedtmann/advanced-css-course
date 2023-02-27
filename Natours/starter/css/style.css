@@ -28,28 +28,25 @@ body {
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.809)), url(../img/hero.jpg);
+  /*  ^^ background-size: cover has image adapt to viewport */
+  /* background-position: top image stays to top of container */
   background-size: cover;
   background-position: top;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-/*  ^^ background-size: cover has image adapt to viewport */
-/* background-position: top image stays to top of container */
-/* position: relative; here is the reference from where the child absolute counts from top and left  */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 40%;
-  left: 50%;
-  text-align: center; }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* position: relative; here is the reference from where the child absolute counts from top and left  */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -57,27 +54,25 @@ body {
   /* below is the "fix" for the odd little shake of the animation at end. weird. */
   backface-visibility: hidden;
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInRight;
-  animation-duration: 2s;
-  /* this controls how fast the params in the moveInLeft func are executed */
-  animation-timing-function: ease-out;
-  /* number of times and delay */
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 2s; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
-  animation: moveInLeft 2s ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInRight;
+    animation-duration: 2s;
+    /* this controls how fast the params in the moveInLeft func are executed */
+    animation-timing-function: ease-out;
+    /* number of times and delay */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 2s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
+    animation: moveInLeft 2s ease-out; }
 
 @keyframes moveInLeft {
   /* want to go from left to right so NEGATIVE value means comes from the left and POSTIVE value means goes to the right */
@@ -110,8 +105,12 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+.btn--animated {
+  animation: moveInBottom 2s ease-out .75;
+  /* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
+  animation-fill-mode: backwards; }
+
+.btn:link, .btn:visited {
   /* needed to add font-size here after REM conversion: */
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -129,6 +128,11 @@ body {
   transform: translateY(-3px);
   /* x value, y value blur color of shadow */
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    /* want the element to grow and to fade out...scale just makes it bigger */
+    transform: scaleX(1.4) scaleY(1.6);
+    /* sets the animation to invisible: */
+    opacity: 0; }
 
 .btn:active {
   /* moves btn a bit down onclick */
@@ -139,6 +143,8 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -155,17 +161,3 @@ body {
   /* ^^sets the position of the elements if they are on top of the other, also needed for the ::after to work. the neg 1 puts it behind */
   /* again, transition goes on the initial state here to animate the scale below of the pseudo elem; */
   transition: all .4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  /* want the element to grow and to fade out...scale just makes it bigger */
-  transform: scaleX(1.4) scaleY(1.6);
-  /* sets the animation to invisible: */
-  opacity: 0; }
-
-.btn--animated {
-  animation: moveInBottom 2s ease-out .75;
-  /* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
-  animation-fill-mode: backwards; }
