@@ -1,0 +1,48 @@
+body {
+	padding: 3rem;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+
+	/* putting root font size in html instead */
+	/* font-size: 16px; */
+
+	line-height: 1.7;
+	color: $color-grey-dark;
+}
+
+.heading-primary {
+	color: $color-white;
+	text-transform: uppercase;
+
+	/* below is the "fix" for the odd little shake of the animation at end. weird. */
+	backface-visibility: hidden;
+	margin-bottom: 6rem;
+
+	&--main {
+		display: block;
+		font-size: 6rem;
+		font-weight: 400;
+		letter-spacing: 3.5rem;
+
+		animation-name: moveInRight;
+		animation-duration: 2s;
+
+		/* this controls how fast the params in the moveInLeft func are executed */
+		animation-timing-function: ease-out;
+
+		/* number of times and delay */
+
+		/* animation-iteration-count: 3; */
+		/* animation-delay: 2s; */
+	}
+
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: 1.75rem;
+
+		/* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
+		animation: moveInLeft 2s ease-out;
+	}
+}

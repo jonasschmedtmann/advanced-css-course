@@ -1,79 +1,3 @@
-/* BASIC RESET */
-*,
-::after,
-::before {
-  /* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
-  margin: 0;
-  padding: 0;
-  /* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
-  box-sizing: inherit; }
-
-html {
-  /* 1 rem === 10px */
-  /* font-size: 10px; */
-  /* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
-  /* do this so it is based on whatever user has selected in browser */
-  font-size: 62.5%; }
-
-body {
-  box-sizing: border-box;
-  padding: 3rem;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* putting root font size in html instead */
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.809)), url(../img/hero.jpg);
-  /*  ^^ background-size: cover has image adapt to viewport */
-  /* background-position: top image stays to top of container */
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* position: relative; here is the reference from where the child absolute counts from top and left  */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 40%;
-    left: 50%;
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* below is the "fix" for the odd little shake of the animation at end. weird. */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInRight;
-    animation-duration: 2s;
-    /* this controls how fast the params in the moveInLeft func are executed */
-    animation-timing-function: ease-out;
-    /* number of times and delay */
-    /* animation-iteration-count: 3; */
-    /* animation-delay: 2s; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
-    animation: moveInLeft 2s ease-out; }
-
 @keyframes moveInLeft {
   /* want to go from left to right so NEGATIVE value means comes from the left and POSTIVE value means goes to the right */
   0% {
@@ -104,6 +28,61 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+/* BASIC RESET */
+*,
+::after,
+::before {
+  /* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
+  margin: 0;
+  padding: 0;
+  /* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
+  box-sizing: inherit; }
+
+html {
+  /* 1 rem === 10px */
+  /* font-size: 10px; */
+  /* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+  /* do this so it is based on whatever user has selected in browser */
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  padding: 3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* putting root font size in html instead */
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* below is the "fix" for the odd little shake of the animation at end. weird. */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInRight;
+    animation-duration: 2s;
+    /* this controls how fast the params in the moveInLeft func are executed */
+    animation-timing-function: ease-out;
+    /* number of times and delay */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 2s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* CAN COMBINE ALL OF THE ABOVE INTO SHORTHAND: */
+    animation: moveInLeft 2s ease-out; }
 
 .btn--animated {
   animation: moveInBottom 2s ease-out .75;
@@ -161,3 +140,26 @@ body {
   /* ^^sets the position of the elements if they are on top of the other, also needed for the ::after to work. the neg 1 puts it behind */
   /* again, transition goes on the initial state here to animate the scale below of the pseudo elem; */
   transition: all .4s; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.809)), url(../img/hero.jpg);
+  /*  ^^ background-size: cover has image adapt to viewport */
+  /* background-position: top image stays to top of container */
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* position: relative; here is the reference from where the child absolute counts from top and left  */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    text-align: center; }

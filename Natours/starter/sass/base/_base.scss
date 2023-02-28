@@ -1,0 +1,25 @@
+/* BASIC RESET */
+*,
+::after,
+::before {
+	/* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
+	margin: 0;
+	padding: 0;
+
+	/* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
+	box-sizing: inherit;
+}
+
+
+html {
+	/* 1 rem === 10px */
+	/* font-size: 10px; */
+	
+	/* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+	/* do this so it is based on whatever user has selected in browser */
+	font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+}
