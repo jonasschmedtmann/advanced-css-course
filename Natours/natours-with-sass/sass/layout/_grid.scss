@@ -4,6 +4,10 @@
 
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-right: $gutter-vertical-small;
+        }
     }
     
     @include clearfix;
