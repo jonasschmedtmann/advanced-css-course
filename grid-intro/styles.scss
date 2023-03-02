@@ -1,0 +1,241 @@
+// Method 1: Line Numbers
+// .container {
+//   background-color: #eee;
+//   width: 1000px;
+//   margin: 30px auto;
+//   display: grid;
+//   grid-template-rows: 100px 200px 400px 100px;
+//   grid-template-columns: repeat(3, 1fr) 200px;
+//   grid-gap: 30px;
+// }
+
+// .item {
+//   padding: 20px;
+//   font-size: 30px;
+//   font-family: sans-serif;
+//   color: white;
+  
+//   &--1 {
+//     background-color: orangered;
+//     grid-column: 1 / -1;
+//   }
+  
+//   &--2 {
+//     background-color: green;
+//      grid-column: 1 / 2;
+//   }
+  
+//   &--3 {
+//     background-color: blueviolet;
+//      grid-column: 2 / 3;
+//   }
+  
+//   &--4 {
+//     background-color: pink;
+//      grid-column: 3 / 4;
+//   }
+  
+//   &--5 {
+//     background-color: royalblue;
+//     grid-row: 2/4;
+//     grid-column: 4/5;
+//   }
+  
+//   &--6 {
+//      background-color: goldenrod;
+//       grid-column: 1 / span 3;
+//   }
+  
+//    &--7 {
+//      background-color: yellow;
+//      grid-column: 1 / -1;
+//   }
+// }
+
+// Method 2: Line Names
+// .container {
+//   background-color: #eee;
+//   width: 1000px;
+//   margin: 30px auto;
+//   display: grid;
+//   grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+//   grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 200px [grid-end];
+//   grid-gap: 30px;
+// }
+
+// .item {
+//   padding: 20px;
+//   font-size: 30px;
+//   font-family: sans-serif;
+//   color: white;
+  
+//   &--1 {
+//     background-color: orangered;
+//     grid-column: col-start 1/ grid-end;
+//   }
+  
+//   &--2 {
+//     background-color: green;
+//   }
+  
+//   &--3 {
+//     background-color: blueviolet;
+//   }
+  
+//   &--4 {
+//     background-color: pink;
+//   }
+  
+//   &--5 {
+//     background-color: royalblue;
+//     grid-row: box-start / main-end;
+//     grid-column: col-end 3 / grid-end;
+//   }
+  
+//   &--6 {
+//      background-color: goldenrod;
+//      grid-column: col-start 1 / col-end 3;
+//   }
+  
+//    &--7 {
+//      background-color: yellow;
+//      grid-column: col-start 1 / grid-end;
+//   }
+// }
+
+// Method 3: Named Areas
+// .container {
+//   background-color: #eee;
+//   width: 1000px;
+//   margin: 30px auto;
+//   display: grid;
+//   grid-template-rows: 100px 200px 400px 100px;
+//   grid-template-columns: repeat(3, 1fr) 200px;
+//   grid-gap: 30px;
+  
+//   grid-template-areas: "head head head head"
+//                        "box-1 box-2 box-3 side"
+//                        "main main main side"
+//                        "foot foot foot foot"
+// }     
+
+// .item {
+//   padding: 20px;
+//   font-size: 30px;
+//   font-family: sans-serif;
+//   color: white;
+  
+//   &--1 {
+//     background-color: orangered;
+//     grid-area: head;
+//   }
+  
+//   &--2 {
+//     background-color: green;
+//   }
+  
+//   &--3 {
+//     background-color: blueviolet;
+//   }
+  
+//   &--4 {
+//     background-color: pink;
+//   }
+  
+//   &--5 {
+//     background-color: royalblue;
+//     grid-area: side;
+//   }
+  
+//   &--6 {
+//      background-color: goldenrod;
+//      grid-area: main;
+//   }
+  
+//    &--7 {
+//      background-color: yellow;
+//      grid-area: foot;
+//   }
+// }
+
+// Implicit and Explicit Grid
+.container {
+  background-color: #eee;
+  width: 1000px;
+  margin: 30px auto;
+  
+  display: grid;
+  
+  // Explicit Grid
+  // grid-template-rows: repeat(2, 150px);
+  // grid-template-columns: repeat(2, 1fr);
+  // Rest is implicit grid (extra unspecified items)
+  
+  grid-gap: 30px;
+  grid-template-columns: max-content 1fr 1fr min-content;
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  
+  // grid-auto-rows: 80px;
+  
+  // Specifies how the rest of the grid is laid out
+  // Row is default: unnecessary
+  // grid-auto-flow: row dense;
+  // grid-auto-columns: .5fr;
+  
+  // Align grid items to grid areas
+  // default is stretch (center, end, start are alternatives) -> Aligns vertically (across column axis)
+  //align-items: center;
+  // default is stretch (center, end, start are alternatives) -> Aligns horizontally (across row axis)
+  //justify-items: center;
+  
+//   grid-template-columns: repeat(2, 200px);
+//   grid-template-rows: repeat(2, 150px);
+//   height: 1000px;
+  
+  // Align-tracks:
+  // Opts: center, start, end, space-between, space-around
+  // justify-content: space-evenly;
+  // align-content: center;
+  
+}
+
+.item {
+  padding: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+  
+  &--1 {
+    background-color: orangered;
+  }
+  
+  &--2 {
+    background-color: green;
+  }
+  
+  &--3 {
+    background-color: blueviolet;
+  }
+  
+  &--4 {
+    background-color: pink;
+    // grid-row: 2 / span 3;
+  }
+  
+  &--5 {
+    background-color: royalblue;
+  }
+  
+  &--6 {
+     background-color: goldenrod;
+  }
+  
+   &--7 {
+     background-color: yellow;
+     // grid-column: 1 / -1;
+  }
+    
+   &--8 {
+     background-color: black;
+  }
+}
