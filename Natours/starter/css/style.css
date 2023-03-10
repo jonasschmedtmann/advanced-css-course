@@ -6,3 +6,93 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*  asterix is the universal selector,
+*   all elements on the page will be given these values.
+*   Here it is used to perform a browser basic reset to ensure
+*   all browsers render the same CSS.
+*
+*   By default, some browsers will apply their own margin/padding to certain elements.
+*   I.e. H1 tags might be given some margin/padding.
+*   This resets so all is determined by us.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
+}
+
+body {
+    /* font settings will be inherited by all child elements on the page */
+    font-family: "Lato", sans-serif;
+    font-weight: 400; /* as per the import in index.html we only have Lato font weights of: 100,300,400,700,900 */
+    font-size: 16px;
+    line-height: 1.7; /* 1.7 times the default line height */
+    color: #777;
+    padding: 30px; /* padding is not inherited, this just applies padding to the whole page body */
+}
+
+.header {
+    height: 95vh; /* 95% of the viewport height */
+    background-image: 
+        linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
+            to right bottom,            /* Specifies the direction the gradient should be in */
+            rgba(126, 213, 111, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba(40, 180, 131, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+        ),
+        url(../img/hero.jpg);           /* One level beneath the colour gradient is this image. */
+    background-size: cover;
+    background-position: top; /* ensures that the top of the image is not cropped when viewport dimensions change 
+    (try changing to bottom or center to see) */
+
+
+    /* with clip-path you can use polygon to define the coordinates of points to include in a shape
+     and clip-path will cut that shape out of the div it's applied to. */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* clip-path: polygon(0 0, 100% 50%, 0 100%); /*- makes a triangle */
+    /* clip-path: polygon(0 33%, 33% 0, 66% 0, 100% 33%, 100% 66%, 66% 100%, 33% 100%, 0 66%); /* makes an irregular hexagon */
+
+    position: relative;
+}
+
+/* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;                          /* Start coords of div are positioned absolutely (50% push top&left) relative to their parents */
+    transform: translate(-50%, -50%);   /* Now to push the div back a bit so that its center is in the center of its parents. 
+                                           Transform and translate are relative to the div itself, 
+                                           meaning the div gets pushed back 50% on itself on each axis */
+}
+
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block; /* block level elements take the full width of their parent and therefore forces a linebreak */
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block; /* block level elements take the full width of their parent and add a line break at the end of themselves */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
