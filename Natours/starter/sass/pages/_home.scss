@@ -3,3 +3,22 @@
 	padding: 25rem 0;
 	margin-top: -20vh
 }
+
+.section-features {
+	margin-top: -10rem;
+	padding: 20rem 0;
+	background-image: linear-gradient(to right bottom,
+				rgba($color-primary-light, 0.801),
+				rgba($color-primary-dark, 0.809)),
+			url(../img/nat-4.jpg);
+	background-size: cover;
+
+	// NOTE: negative values skew up and to the right
+	transform: skewY(-7deg);
+
+	// direct child selector below
+	// but ONLY selects the DIRECT CHILD(s) of section-features
+	& > * {
+		transform: skewY(7deg);
+	}
+}

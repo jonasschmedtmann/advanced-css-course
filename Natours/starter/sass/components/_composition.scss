@@ -6,7 +6,6 @@
 		// for scalability: always define WIDTHS with %s if possible
 		width: 55%;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
-		border-radius: 2px;
 		position: absolute;
 		// NOTE: have to set a lower z-index on ALL the other elems
 		z-index: 10;
@@ -35,7 +34,7 @@
 		&:hover {
 			// simliar to using border but can use offline-offset in parent above
 			outline: 1.5rem solid $color-primary;
-			transform: scale(1.05) translateY(.5)
+			transform: scale(1.05) translateY(.5);
 			// NOTE: a BIGGER shadow gives the impression that it is CLOSER to the user
 			box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
 			//!!!!!the higher z-index is thusly displayed on top
