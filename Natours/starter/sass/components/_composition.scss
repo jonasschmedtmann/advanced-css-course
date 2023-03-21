@@ -1,0 +1,50 @@
+.composition {
+	// the top left corner will be the REFERENCE for the absolute position below; ALWAYS set the PARENT of the elem being ABSOLUTELY positioned to RELATIVE
+	position: relative;
+
+	&__photo {
+		// for scalability: always define WIDTHS with %s if possible
+		width: 55%;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+		border-radius: 2px;
+		position: absolute;
+		// NOTE: have to set a lower z-index on ALL the other elems
+		z-index: 10;
+		// setting the TRANSITION here really really SMOOTHS out the animations for all
+		transition: all .2s;
+		outline-offset: 2rem;
+
+
+		&--p1 {
+			// negative value moves it UP 
+			left: 0;
+			top: -2rem;
+		}
+
+		&--p2 {
+			//using 'right' instead of 'left' will position 0px from the right container
+			right: 0;
+			top: 2rem;
+		}
+
+		&--p3 {
+			left: 20%;
+			top: 10rem;
+		}
+
+		&:hover {
+			// simliar to using border but can use offline-offset in parent above
+			outline: 1.5rem solid $color-primary;
+			transform: scale(1.05) translateY(.5)
+			// NOTE: a BIGGER shadow gives the impression that it is CLOSER to the user
+			box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+			//!!!!!the higher z-index is thusly displayed on top
+			z-index: 20;
+		}
+	}
+	//ie in the css     composition:hover composition__photo:not(:hover)
+	// here we are trying to make the other pics not decrease in size that are NOT HOVERED I guess...
+	&:hover &__photo:not(:hover) {
+		transform: scale(.95);
+	}
+}

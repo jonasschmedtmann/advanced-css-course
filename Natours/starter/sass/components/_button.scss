@@ -9,7 +9,7 @@
 	&:link,
 	&:visited {
 		/* needed to add font-size here after REM conversion: */
-		font-size: 1.6rem;
+		font-size: $default-font-size;
 
 		text-transform: uppercase;
 		text-decoration: none;
@@ -69,5 +69,38 @@
 
 		/* again, transition goes on the initial state here to animate the scale below of the pseudo elem; */
 		transition: all .4s;
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		font-size: $default-font-size;
+		color: $color-primary;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-primary;
+		padding: 3px;
+
+		// need the transition for the transform below to work
+		transition: all .2s;
+	}
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+
+		// x, y, blur, color
+		box-shadow: 0 1rem 2rem rgba($color-black, .15);
+
+		// moves the btn UP a bit on hover
+		transform: translateY(-2px);
+	}
+
+	&:active {
+		box-shadow: 0 1rem 2rem rgba($color-black, .15);
+		
+		//moves it back to original position DON'T FORGET TRANSITION to work!!!
+		transform: translateY(0);
 	}
 }
