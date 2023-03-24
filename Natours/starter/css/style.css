@@ -6,3 +6,231 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*  asterix is the universal selector,
+*   all elements on the page will be given these values.
+*   Here it is used to perform a browser basic reset to ensure
+*   all browsers render the same CSS.
+*
+*   By default, some browsers will apply their own margin/padding to certain elements.
+*   I.e. H1 tags might be given some margin/padding.
+*   This resets so all is determined by us.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
+}
+
+body {
+    /* font settings will be inherited by all child elements on the page */
+    font-family: "Lato", sans-serif;
+    font-weight: 400; /* as per the import in index.html we only have Lato font weights of: 100,300,400,700,900 */
+    font-size: 16px;
+    line-height: 1.7; /* 1.7 times the default line height */
+    color: #777;
+    padding: 30px; /* padding is not inherited, this just applies padding to the whole page body */
+}
+
+.header {
+    height: 95vh; /* 95% of the viewport height */
+    background-image: 
+        linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
+            to right bottom,            /* Specifies the direction the gradient should be in */
+            rgba(126, 213, 111, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba(40, 180, 131, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+        ),
+        url(../img/hero.jpg);           /* One level beneath the colour gradient is this image. */
+    background-size: cover;
+    background-position: top; /* ensures that the top of the image is not cropped when viewport dimensions change 
+    (try changing to bottom or center to see) */
+
+
+    /* with clip-path you can use polygon to define the coordinates of points to include in a shape
+     and clip-path will cut that shape out of the div it's applied to. */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* clip-path: polygon(0 0, 100% 50%, 0 100%); /*- makes a triangle */
+    /* clip-path: polygon(0 33%, 33% 0, 66% 0, 100% 33%, 100% 66%, 66% 100%, 33% 100%, 0 66%); /* makes an irregular hexagon */
+
+    position: relative;
+}
+
+/* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;                          /* Start coords of div are positioned absolutely (50% push top&left) relative to their parents */
+    transform: translate(-50%, -50%);   /* Now to push the div back a bit so that its center is in the center of its parents. 
+                                           Transform and translate are relative to the div itself, 
+                                           meaning the div gets pushed back 50% on itself on each axis */
+    text-align: center;
+}
+
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+
+    /*  */
+    backface-visibility: hidden; /* animations can sometimes cause little shifts when they end. No one really knows why. This fixes it. */
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block; /* block level elements take the full width of their parent and therefore forces a linebreak */
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+
+
+    /* ease-in = slow start and speeds up */
+    /* ease-out = fast start and slows down */
+    animation-timing-function: ease-out; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function */
+
+    /*
+    animation-delay: 3s;            delays the start of the animation by 3 seconds
+    animation-iteration-count: 3;   runs the animation 3 times
+    */
+}
+
+.heading-primary-sub {
+    display: block; /* block level elements take the full width of their parent and add a line break at the end of themselves */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+/* for browser performance it's best to only ever animate 2 properties. 
+Browsers are optimised for opacity & transform properties to be animated */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    /* does some mad shit
+    60% {
+        transform: rotate(120deg);
+    }
+    */
+
+    80% {
+        transform: translateX(10px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* link here is a pseudo class. Pseudo classes are special states of a selector. We use pseudo classes to style elements under a special condition */
+/* Other examples might include :hover, :first-child, :checked */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px; /* 15px top/bottom 40px left/right*/
+    display: inline-block; /* applied so that padding doesn't cause overlap with other elements.
+                            Also inline-block elements are treated as text so this is centered with text-center on the .textbox */
+    border-radius: 100px;
+    transition: all .2s; /* .2s transition will be applied on all pseudoclass states (hover, active) */
+    position: relative;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /* 0 shadow offset in x direction. 10px offset in y. 20px blur (makes shadow larger) */
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2); /* in relation to hover pseudoclass, this makes the button look like it's being pushed down as it's "closer" to the page */
+}
+
+/* after here is a pseudo element. The trick here is adding a button which looks like the actual button and hide it behind it */
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%; /* pseudo element is basically treated as a child element of the base element */
+    width: 100%;
+    border-radius: 100px;
+
+    /* positions the pseudoelement behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+    color: #777;
+}
+
+/* when we want hover the button, we apply these styles to the 'after' pseudoelement */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6); /* scales 1.4 times original size on x and 1.6 on y */
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /* applies the animations of the 0% keyframes before the animation starts */
+}
