@@ -1,11 +1,6 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
+$color-primary: #7ed56f;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
 
 /*  asterix is the universal selector,
 *   all elements on the page will be given these values.
@@ -16,6 +11,9 @@ Dark green: #28b485
 *   I.e. H1 tags might be given some margin/padding.
 *   This resets so all is determined by us.
 */
+
+$color-grey-dark: #777;
+$color-white: #fff;
 
 *,
 *::after,
@@ -35,7 +33,7 @@ body {
     font-weight: 400; /* as per the import in index.html we only have Lato font weights of: 100,300,400,700,900 */
     font-size: 1.6rem;
     line-height: 1.7; /* 1.7 times the default line height */
-    color: #777;
+    color: $color-grey-dark;
     padding: 3rem; /* padding is not inherited, this just applies padding to the whole page body */
     box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
 }
@@ -45,8 +43,8 @@ body {
     background-image: 
         linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
             to right bottom,            /* Specifies the direction the gradient should be in */
-            rgba(126, 213, 111, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
-            rgba(40, 180, 131, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba($color-primary-light, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba($color-primary-dark, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
         ),
         url(../img/hero.jpg);           /* One level beneath the colour gradient is this image. */
     background-size: cover;
@@ -87,7 +85,7 @@ body {
 
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
 
 
@@ -197,8 +195,8 @@ Browsers are optimised for opacity & transform properties to be animated */
 }
 
 .btn--white {
-    background-color: #fff;
-    color: #777;
+    background-color: $color-white;
+    color: $color-grey-dark;
 }
 
 .btn:hover {
@@ -228,8 +226,8 @@ Browsers are optimised for opacity & transform properties to be animated */
 }
 
 .btn--white::after {
-    background-color: #fff;
-    color: #777;
+    background-color: $color-white;
+    color: $color-grey-dark;
 }
 
 /* when we want hover the button, we apply these styles to the 'after' pseudoelement */

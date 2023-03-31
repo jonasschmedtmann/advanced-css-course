@@ -1,3 +1,7 @@
+# Aaron's Version
+
+- Instead of node-sass and live-server used in section 4. I opted to use the VS code extensions Live Sass Compiler (glenn2223.live-sass) and Live Server (ritwickdey.LiveServer).
+
 # Course Material and FAQ for my Advanced CSS Course
 
 This repo contains starter files and the finished project files for all the projects contained in the course.
