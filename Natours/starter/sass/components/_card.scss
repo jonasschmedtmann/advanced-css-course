@@ -1,4 +1,6 @@
 .card {
+	// FUNCTIONALITY
+
 	//perspective MUST be on the parent
 	// also, for perspective, the LOWER the value, the more dramatic it is
 	perspective: 150rem;
@@ -17,6 +19,9 @@
 		width: 100%;
 		backface-visibility: hidden;
 		border-radius: 3px;
+
+		//this is to keep the corners of the card rounded, which the image made squre again
+		overflow: hidden;
 
 		//props are x, y, blur, and color
 		box-shadow: 0 1.5rem 40px rgba($color-black, .15);
@@ -48,4 +53,30 @@
 	&:hover &__side--back {
 		transform: rotateY(0);
 	}
+
+
+	// FRONT SIDE STYLING
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		// background-blend mode is blending the picture AND the orange gradient below...note the comman between the linnear gradient and the url for the pic
+		background-blend-mode: exclusion;
+
+		// params start from the top left corner with 0 0, then x direction y direction,
+		// webkit is so it works in safari
+		-wekbkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+		 &--1 {
+			background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+		 }
+
+		 &--2 {
+			background-image: url(../img/nat-5.jpg);
+		 }
+
+		 &--3 {
+			background-image: url(../img/nat-5.jpg);
+		 }
+	} 
 }
