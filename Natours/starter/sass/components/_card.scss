@@ -1,0 +1,51 @@
+.card {
+	//perspective MUST be on the parent
+	// also, for perspective, the LOWER the value, the more dramatic it is
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+	height: 50rem;
+
+	&__side {
+		font-size: 2rem;
+
+		height: 50rem;
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+
+		//props are x, y, blur, and color
+		box-shadow: 0 1.5rem 40px rgba($color-black, .15);
+
+		&--front {
+			background-color: $color-white;
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+		}
+
+		&-1 {
+			//NOTE: for gradients, needs to be background-IMAGE, and then linear-gradient and the props are to right bottom, first color and second color
+			background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+		}
+	}
+	
+	
+	
+	&:hover &__side--front {
+		transform: rotateY(180deg);
+	}
+	
+	&:hover &__side--back {
+		transform: rotateY(0);
+	}
+}
