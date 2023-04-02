@@ -215,7 +215,7 @@ body {
     .card__side--front {
       background-color: #fff; }
     .card__side--back {
-      transform: rotateY(180deg); }
+      transform: rotateY(-180deg); }
       .card__side--back-1 {
         background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
     .card__side-1 {
