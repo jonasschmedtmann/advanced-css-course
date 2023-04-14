@@ -41,7 +41,11 @@
 
 .book {
 	// we want the gradient to be on top of the img, so we put it 1st separated by commas
-	background-image: linear-gradient(105deg, rgba($color-black, .9), orangered), url(../img/nat-10.jpg);
+	background-image: linear-gradient(105deg,
+		rgba($color-white, .9) 0%,
+		rgba($color-white, .9) 50%,
+		transparent 50%),
+		url(../img/nat-10.jpg);
 
 	// 100% is the same as cover as it's one hundred percent of the width
 	// background-size: cover;
