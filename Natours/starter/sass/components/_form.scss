@@ -1,6 +1,7 @@
 .form {
-	&__group {
-
+	// margin on everything BUT the last one trick 
+	&__group:not(:last-child) {
+		margin-bottom: 2rem;
 	}
 	
 	&__input {
@@ -14,7 +15,30 @@
 		border-radius: 2px;
 		background-color: rgba($color-white, .5);
 		border: none;
+
+		// adding this to the INITIAL STATE as below it makes the elem move a bit because of the added 3px when focused on 
+		// THAT WAY IT DOESN'T MOVE!!!!!!!!!!!
+		border-bottom: 3px solid transparent;
+		width: 60%;
+
+		// NOTE ONLY FOR SAFARI AND CHROME
+		// below is how you stylize PLACEHOLDER text for an input
+		&::-webkit-input-placeholder {
+			color: $color-grey-dark-2;
+		}
+
+		&:focus {
+			// below replaces default browser focus (on input or whatever) with something CUSTOM and much cooler looking!! 
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($color-black, .1);
+	
+			// border: thickness, style, color
+			border-bottom: 3px solid $color-primary;
+		}
+
 	}
+
+
 
 	&__label {
 
