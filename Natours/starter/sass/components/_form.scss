@@ -1,0 +1,23 @@
+.form {
+	&__group {
+
+	}
+	
+	&__input {
+		font-size: 1.5rem;
+
+		// input elems don't automatically inherit the font so doing it here manually
+		font-family: inherit;
+		
+		// JONASTIP: ALWAYS A BIT MORE PADDING ON THE SIDES 
+		padding: 1.5rem 2rem;
+		border-radius: 2px;
+		background-color: rgba($color-white, .5);
+		border: none;
+	}
+
+	&__label {
+
+	}
+
+}
