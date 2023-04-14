@@ -33,3 +33,20 @@
 	position: relative;
 	padding: 15rem 0;
 }
+
+.section-book {
+	padding: 15rem 0;
+	background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+	// we want the gradient to be on top of the img, so we put it 1st separated by commas
+	background-image: linear-gradient(105deg, rgba($color-black, .9), orangered), url(../img/nat-10.jpg);
+
+	// 100% is the same as cover as it's one hundred percent of the width
+	// background-size: cover;
+	background-size: 100%;
+	height: 50rem;
+	border-radius: 3px;
+	box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+}
