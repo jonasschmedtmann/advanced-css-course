@@ -5,7 +5,7 @@
 		/* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
 		animation-fill-mode: backwards;
 	}
-
+	&,
 	&:link,
 	&:visited {
 		/* needed to add font-size here after REM conversion: */
@@ -20,6 +20,10 @@
 		transition: all .2s;
 		/* the below is set for the ::after pseudo element animation to work */
 		position: relative;
+
+		// change for the <button> elem
+		border: none;
+		cursor: pointer;
 	}
 
 	&:hover {
@@ -37,7 +41,8 @@
 		}
 	}
 
-	&:active {
+	&:active,
+	&:focus {
 		/* moves btn a bit down onclick */
 		transform: translateY(-1px);
 		/* want the shadow to look smaller onclick, hence give the user the impression it is CLOSER to page and FURTHER away from user, less blur too */

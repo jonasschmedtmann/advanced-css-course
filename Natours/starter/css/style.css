@@ -109,22 +109,22 @@ body {
     margin-bottom: 3rem; }
 
 .u-center-text {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem !important; }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem !important; }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem !important; }
 
 .u-margin-top-big {
-  margin-top: 8rem; }
+  margin-top: 8rem !important; }
 
 .u-margin-top-huge {
-  margin-top: 10rem; }
+  margin-top: 10rem !important; }
 
 .bg-video {
   position: absolute;
@@ -144,7 +144,7 @@ body {
   /* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
   animation-fill-mode: backwards; }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   /* needed to add font-size here after REM conversion: */
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -155,7 +155,9 @@ body {
   /* transition: always go in the INITIAL state, just the way it is... */
   transition: all .2s;
   /* the below is set for the ::after pseudo element animation to work */
-  position: relative; }
+  position: relative;
+  border: none;
+  cursor: pointer; }
 
 .btn:hover {
   /* to move UP, it is a negative value ie page flows from top to bottom */
@@ -168,7 +170,7 @@ body {
     /* sets the animation to invisible: */
     opacity: 0; }
 
-.btn:active {
+.btn:active, .btn:focus {
   /* moves btn a bit down onclick */
   transform: translateY(-1px);
   /* want the shadow to look smaller onclick, hence give the user the impression it is CLOSER to page and FURTHER away from user, less blur too */
@@ -374,7 +376,8 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-bottom: 3px solid transparent;
-  width: 60%; }
+  width: 60%;
+  transition: all .3s; }
   .form__input::-webkit-input-placeholder {
     color: #999; }
   .form__input:focus:invalid {
@@ -396,6 +399,45 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: -.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity(0.2s); }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .story {
   width: 75%;

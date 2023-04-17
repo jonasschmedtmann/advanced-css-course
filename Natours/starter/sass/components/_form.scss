@@ -21,6 +21,7 @@
 		// THAT WAY IT DOESN'T MOVE!!!!!!!!!!!
 		border-bottom: 3px solid transparent;
 		width: 60%;
+		transition: all .3s;
 
 		// NOTE ONLY FOR SAFARI AND CHROME
 		// below is how you stylize PLACEHOLDER text for an input
@@ -70,4 +71,60 @@
 		// for animation: it moves down the page 4rem
 		transform: translateY(-4rem)
 	}
+
+		&__radio-group {
+			width: 49%;
+			display: inline-block;
+		}
+
+		&__radio-input {
+			// this hides the original un-stylable radio
+			display: none;
+		}
+
+		&__radio-label {
+			font-size: $default-font-size;
+			cursor: pointer;
+			position: relative;
+			padding-left: 4.5rem;
+		}
+
+		&__radio-button {
+			height: 3rem;
+			width: 3rem;
+			border: 5px solid $color-primary;
+			display: inline-block;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: -.4rem;
+
+			&::after {
+				content: "";
+				display: block;
+				height: 1.3rem;
+				width: 1.3rem;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: $color-primary;
+
+				// opacity zero here so the UNselected radio is empty
+				opacity: 0;
+
+				// for the animation to smooth it out a bit
+				transition: opacity(.2s);
+			}
+		}
+
+		// the actual radio has a pseudo-class of checked as part of it's makeup, which we can leverage to our advantage with the below :checked 
+		// the GOAL here is to hide the original radio and show our new stylized span, but it needs to have a filled in green circle if it is indeed checked, hence the above
+
+		// when the radio input is:checked ~ select sibling &__then the child, and the pseudo::after
+		&__radio-input:checked ~ &__radio-label &__radio-button::after {
+			// opacity one here so the selected radio is full
+			opacity: 1;
+		}
 }	

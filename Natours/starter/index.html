@@ -298,6 +298,29 @@
                                     <input type="email" class="form__input" placeholder="Email Address" id="email" required>
                                     <label for="email" class="form__label">Email Address</label>
                                 </div>
+
+                                <div class="form__group u-margin-bottom-medium">
+                                    <!-- note: both radios need to have the same name attr for the radios to function properly -->
+                                    <div class="form__radio-group">
+                                        <input type="radio" class="form__radio-input" id="small" name="size">
+                                        <label for="small" class="form__radio-label">
+                                            <!-- JONAS-TRICK since there is no way to style the RADIO elem, we are creating a span so we can style it -->
+                                            <span class="form__radio-button"></span>
+                                            Small Tour Group
+                                        </label>
+                                    </div>
+                                    <div class="form__radio-group">
+                                        <input type="radio" class="form__radio-input" id="large" name="size">
+                                        <label for="large" class="form__radio-label">
+                                            <span class="form__radio-button"></span>
+                                            Large Tour Group
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form__group">
+                                    <button class="btn btn--green">next step &rarr;</button>
+                                </div>
                             </form>
                         </div>
                     </div>
