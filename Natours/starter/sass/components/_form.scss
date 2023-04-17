@@ -7,9 +7,10 @@
 	&__input {
 		font-size: 1.5rem;
 
-		// input elems don't automatically inherit the font so doing it here manually
+		// input elems don't automatically inherit the font so doing it here manually (same for color)
 		font-family: inherit;
-		
+		color: inherit;
+
 		// JONASTIP: ALWAYS A BIT MORE PADDING ON THE SIDES 
 		padding: 1.5rem 2rem;
 		border-radius: 2px;
@@ -27,6 +28,11 @@
 			color: $color-grey-dark-2;
 		}
 
+		&:focus:invalid {
+			// THIS is the style we want to apply when we have an invalid focused elem!!!!!!
+			border-bottom: 3px solid $color-secondary-dark;
+		}
+
 		&:focus {
 			// below replaces default browser focus (on input or whatever) with something CUSTOM and much cooler looking!! 
 			outline: none;
@@ -34,14 +40,34 @@
 	
 			// border: thickness, style, color
 			border-bottom: 3px solid $color-primary;
-		}
+		} 
 
 	}
 
 
 
 	&__label {
-
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-left: 2rem;
+		margin-top: .7rem;
+		display: block;
+		
+		// the transition is for the animation below
+		transition: all .3s;
 	}
 
-}
+	&__input:placeholder-shown + &__label {
+		// the plus operator is the adjacent sibling selector
+		// '~' is the general sibling selector
+
+		// need to use opacity so we can animate the effect
+		opacity: 0;
+
+		// removed from page flow
+		visibility: hidden;
+
+		// for animation: it moves down the page 4rem
+		transform: translateY(-4rem)
+	}
+}	
