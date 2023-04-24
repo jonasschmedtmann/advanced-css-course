@@ -1,0 +1,125 @@
+.popup {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba($color-black, .8);
+	z-index: 5500;
+
+	// need to do both of these
+	opacity: 0;
+	visibility: hidden;
+	
+	//for the popup animation
+	transition: all .3s;
+
+
+	// OPEN STATES
+	// the target is the last part of the url here:
+	// http: //127.0.0.1:8080/#popup
+
+	// this selector is what allows us to target the id popup via anchor aka TARGET
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&:target &__content{
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	// this is the styles for the X close a/btn in the modal
+	&__close {
+		&:link,
+		&:visited {
+			color: $color-grey-dark;
+			position: absolute;
+			top: 1rem;
+			right: 2.5rem;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 3rem;
+
+			// goes on the parent!
+			transition: all .2s;
+			line-height: 1;
+		}
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+	&__content {
+		@include absCenter;
+		width: 75%;
+		background-color: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color-black, .2);
+		border-radius: 3px;
+
+		// put display table on PARENT
+		display: table;
+
+		// this is the fix for the square corners on the img side (want them round like the other side) it HIDES the overflow of the img which overflows to the popup div
+		overflow: hidden;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(.5);
+		transition: all .4s .2s;
+	}
+	
+	&__left {
+		width: 33.33333334%;
+		
+		// and table cell for both the children; this gives them the same HEIGHT
+		display: table-cell;
+		
+		// previous solution was to use floats but using table cell method instead
+		// float: left;
+		height: 20rem;
+	}
+	
+	&__right {
+		
+		// and table cell for both the children; this gives them the same HEIGHT
+		display: table-cell;
+		width: 66.6666667%;
+		
+		// property that can be used on table cells
+		vertical-align: middle;
+
+		// JONAS*TIP: always looks better to have a bit more padding on the sides than top
+		// padding: top/bottom sides
+		padding: 1rem 2rem;
+	}
+
+	&__img {
+		// usually a good thing to do for imgs
+		display: block;
+
+		// 100% takes up 100% of the PARENT CONTAINER'S WIDTH
+		width: 100%;
+
+		// had to make this 115 to get rid of annoying white line at bottom not a responsive fix tho
+		height: 115%;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		margin-bottom: 4rem;
+
+		// AUTOMATICALLY creates two columns for the text!!!!
+		column-count: 2;
+		column-gap: 4rem; 
+		column-rule: 1px solid $color-grey-light-2;
+
+		// AUTOMATICALLY places hyphens based on lang in hmtl
+		hyphens: auto;
+		
+		// inital value
+		// hyphens: none;
+		
+		// REMINDER 1em = 14px; because em is always the font size of the current elem, and rem is the font size of the ROOT
+	}
+}

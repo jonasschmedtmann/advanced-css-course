@@ -70,7 +70,7 @@
                 <span class="heading-primary--main">outdoors</span>
                 <span class="heading-primary--sub">is where life happens</span>
             </h1>
-            <a href="#"
+            <a href="#section-tours"
                 class="btn btn--white btn--animated">
                 Discover our tours
             </a>
@@ -177,7 +177,7 @@
 
         </section>
 
-        <section class="section-tours">
+        <section class="section-tours" id="section-tours">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary">
                     Most popular tours
@@ -212,7 +212,7 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$297</p>
                                 </div>
-                                <a href="#"
+                                <a href="#popup"
                                     class="btn btn--white">Book Now!</a>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$897</p>
                                 </div>
-                                <a href="#"
+                                <a href="#popup"
                                     class="btn btn--white">Book Now!</a>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$7</p>
                                 </div>
-                                <a href="#"
+                                <a href="#popup"
                                     class="btn btn--white">Book Now!</a>
                             </div>
                         </div>
@@ -470,6 +470,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- the box of the dark background -->
+    <!-- using the id here to leverage anchor aka TARGET tags....see the a elems and their #popup -->
+    <div class="popup" id="popup">
+
+        <!-- the popup itself -->
+        <div class="popup__content">
+           <div class="popup__left">
+            <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+            <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+            </div>
+            <div class="popup__right">
+
+                <!-- this is the CLOSE MODAL BTN effectively; when popup is no longer the TARGET, will close the modal -->
+                <a href="#section-tours" class="popup__close">&times;</a>
+                <h2 class="heading-secondary u-margin-bottom-medium">Start Booking Now</h2>
+                <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms okay</h3>
+                <p class="popup__text">
+                    Every man who has lotted here over the centuries, has looked up to the light and imagined climbing to freedom. So easy,
+                    so simple! And like shipwrecked men turning to seawater foregoing uncontrollable thirst, many have died trying. And then
+                    here there can be no true despair without hope. So as I terrorize Gotham, I will feed its people hope to poison their
+                    souls. I will let them believe that they can survive so that you can watch them climbing over each other to stay in the
+                    sun. You can watch me torture an entire city. And then when you’ve truly understood the depth of your failure, we will
+                    fulfill Ra’s Al Ghul’s destiny. We will destroy Gotham. And then, when that is done, and Gotham is… ashes Then you have
+                    my permission to die.
+                </p>
+                <a href="#" class="btn btn--green">Book now</a>
+            </div>
+        </div>
+    </div>
 
     <!-- below is how to handroll your own grid -->
     <!-- <section class="grid-test">
