@@ -3,9 +3,18 @@
 	padding: 10rem 0;
 	font-size: 1.4rem;
 
+	@include respond(tab-port) {
+		// MOST IMPORTANT BREAKPOINTS ARE 600PX AND 900PX
+		padding: 8rem 0;
+	}
+
 	&__logo-box {
 		text-align: center;
 		margin-bottom: 8rem;
+
+		@include respond(tab-port) {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__logo {
@@ -20,6 +29,11 @@
 
 		// inline-block does NOT take up all available width, only what the content NEEDS
 		display: inline-block;
+
+		@include respond(phone) {
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	&__list {
@@ -61,5 +75,10 @@
 		width: 80%;
 		padding-top: 2rem;
 		float: right;
+
+		@include respond(phone) {
+			width: 100%;
+			float: none;
+		}
 	}
 }

@@ -13,3 +13,43 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+// ORDERL Base + typography > general layout + grid > page layout > components
+
+
+// MEDIA QUERY MANAGER
+/* 
+0 - 600 px		PHONE
+600 - 900 px		TABLET (PORTRAIT) **** max-width media query
+900 - 1200 px		TABLET (LANDSCAPE) **** max-width media query
+1200 - 1800 px		DESKTOP **** normal styles we have written outside of the media query
+1800 px	 +			WIDE DESKTOP **** min-width media query
+*/
+
+/*
+$breakpoint arg choices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+*/
+
+// !!!! NOTE: rems and ems are NOT affected by the ROOT font-size setting in media queries  !!!!!
+// em s are the best option for media queries !!!!! 
+
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media (max-width: 37.5em) { @content };	//600px
+	}
+	@if $breakpoint == tab-port {
+		@media (max-width: 56.25em) { @content };		//900px
+	}
+	@if $breakpoint == tab-land {
+		@media (max-width: 75em) { @content };			//1200px
+	}
+	@if $breakpoint == big-desktop {
+		@media (min-width: 112.5em) { @content };			//1800px
+	}
+}

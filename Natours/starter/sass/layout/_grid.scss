@@ -1,12 +1,24 @@
 .row {
 	// 1140px is a standard starter layout for width but in REM we just divide by 10
 	max-width: $grid-width;
+
+	@include respond(tab-port) {
+		max-width: 50rem;
+		// padding: top/bottom left/right;
+		padding: 0 3rem;
+	}
+
+
 	// trick to center a block elem inside another block elem !!!!!!!!
 	margin: 0 auto;
 	
 	// :not pseudo selects everything EXCEPT last child
 	&:not(:last-child) {
 		margin-bottom: $gutter-vertical;
+
+		@include respond(tab-port) {
+			margin-bottom: $gutter-vertical-small;
+		}
 	}
 
 	@include clearfix;
@@ -17,6 +29,15 @@
 	
 		&:not(:last-child) {
 			margin-right: $gutter-horizontal;
+
+			@include respond(tab-port) {
+				margin-right: 0;
+				margin-bottom: $gutter-vertical-small;
+			}
+		}
+
+		@include respond(tab-port) {
+			width: 100% !important;
 		}
 	}
 	// nesting this here translates to 'a column which will always be in a row'

@@ -15,6 +15,16 @@
 		box-shadow: 0 1rem 3rem rgba($color-black, .4);
 		text-align: center;
 		cursor: pointer;
+
+		@include respond(tab-port) {
+			top: 4rem;
+			right: 4rem;
+		}
+
+		@include respond(phone) {
+			top: 3rem;
+			right: 3rem;
+		}
 	}
 
 	&__background {
@@ -33,7 +43,15 @@
 		// The z-index property only effects elements that have a position value other than static (the default) or are flex items (direct children of display: flex or display: inline-flex).
 		z-index: 1000;
 
-		// transform: scale(80);
+		@include respond(tab-port) {
+			top: 4.5rem;
+			right: 4.5rem;
+		}
+
+		@include respond(phone) {
+			top: 3.5rem;
+			right: 3.5rem;
+		}
 
 		transition: transform .8s;
 	}
