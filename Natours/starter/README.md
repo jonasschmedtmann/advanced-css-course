@@ -1,6 +1,8 @@
 [codepen for SASS](https://codepen.io/wolfinator/pen/zYJqGRw)
 
-** SHIT I NEVER DID KNOWED:
+
+
+** stuff I NEVER DID KNOWED:
 
 "dependencies": Packages required by your application in production. 
 	jquery is needed for app to run

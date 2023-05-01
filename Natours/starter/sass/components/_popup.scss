@@ -15,6 +15,17 @@
 	transition: all .3s;
 
 
+	// GRACEFUL DEGREDATION BROWSER SUPPORT WITH @supports
+	@supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+		-webkit-backdrop-filter: blur(10px);
+		// backdrop-filter: blur(10px);
+
+		// experimenting with a different backdrop-filter, NEAT!
+		backdrop-filter: sepia(100%);
+		background-color: rgba($color-black, .3);
+	}
+
+
 	// OPEN STATES
 	// the target is the last part of the url here:
 	// http: //127.0.0.1:8080/#popup
