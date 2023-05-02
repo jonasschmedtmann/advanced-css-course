@@ -1,0 +1,186 @@
+.navigation {
+	&__checkbox {
+		display: none;
+	}
+
+	&__button {
+		background-color: $color-white;
+		height: 7rem;
+		width: 7rem;
+		position: fixed;
+		top: 6rem;
+		right: 6rem;
+		border-radius: 50%;
+		z-index: 2000;
+		box-shadow: 0 1rem 3rem rgba($color-black, .4);
+		text-align: center;
+		cursor: pointer;
+
+		@include respond(tab-port) {
+			top: 4rem;
+			right: 4rem;
+		}
+
+		@include respond(phone) {
+			top: 3rem;
+			right: 3rem;
+		}
+	}
+
+	&__background {
+		height: 6rem;
+		width: 6rem;
+		border-radius: 50%;
+		position: fixed;
+		top: 6.5rem;
+		right: 6.5rem;
+
+		//radial gradient starts in the middle of the elem and then goes outwards
+		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+
+		// REMEMBER: Z-INDEX ONLY works on an elem with it's position defined, as above
+		// in other words
+		// The z-index property only effects elements that have a position value other than static (the default) or are flex items (direct children of display: flex or display: inline-flex).
+		z-index: 1000;
+
+		@include respond(tab-port) {
+			top: 4.5rem;
+			right: 4.5rem;
+		}
+
+		@include respond(phone) {
+			top: 3.5rem;
+			right: 3.5rem;
+		}
+
+		transition: transform .8s;
+	}
+
+	&__nav {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1500;
+
+		opacity: 0;
+		width: 0;
+
+		// for animating the color explosion on hitting the menu btn with a CUSTOM (cubic bezier) ease in out func
+		transition: all .1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	&__list {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		list-style: none;
+		text-align: center;
+		width: 100%;
+	}
+
+	&__item {
+		margin: 1rem;
+	}
+
+	&__link {
+
+		&:link,
+		&:visited {
+			// needed to change this to inline block so the padding and transform on hover work
+			display: inline-block;
+
+			padding: 1rem 2rem;
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-weight: 300;
+			color: $color-white;
+			text-decoration: none;
+
+			// this is for the highlighting effect of each menu item
+			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+			background-size: 220%;
+			transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		}
+
+		&:hover,
+		&:active {
+			// background-position is how we control how much space the linear-gradient takes on each animation
+			background-position: 100%;
+			color: $color-primary;
+
+			// this is use to move it positioning wise
+			transform: translateX(1rem);
+		}
+	}
+	// FUNCTIONALITY
+	// CHECKBOX HACK: using the checkbox pseudo and we then use the adjacent sibling selector (~)
+	&__checkbox:checked ~ &__background {
+		transform: scale(80);
+	}
+
+	&__checkbox:checked~&__nav {
+		opacity: 1;
+		width: 100%;
+	}
+
+	// ICON
+	&__icon {
+		// the parent in this case (for the absolute pos) is just the icon
+		position: relative;
+		margin-top: 3.5rem;
+		&,
+		&::before,
+		&::after {
+			width: 3rem;
+			height: 2px;
+			background-color: $color-grey-dark-3;
+			display: inline-block;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			transition: all .2s;
+		}
+
+		&::before { top: -.8rem; }
+		&::after { top: .8rem; }
+	}
+
+	&__button:hover &__icon::before{
+		top: -1rem;
+	}
+
+	&__button:hover &__icon::after{
+		top: 1rem;
+	}
+
+
+	// one can do a TON of stuff with the :checked pseudo state!!!
+	// THIS IS ALSO THE CHECKBOX HACK
+	// when it is 'checked' select the brother, then that brother elem's child
+	&__checkbox:checked + &__button &__icon {
+		// this the first step of turning the 3 bars of the menu into a close X when clicked
+		background-color: transparent;
+	}
+
+	&__checkbox:checked + &__button &__icon::before {
+		// rotate the other line
+
+		// had to do top: 0 to center it
+		top: 0;
+		transform: rotate(135deg);
+	}
+	
+	&__checkbox:checked + &__button &__icon::after {
+		// and the other to make a 'X'
+
+		//135 degress makes it 'flip' a bit more in the animation instead of 45
+		top: 0;
+		transform: rotate(-135deg);
+	}
+}

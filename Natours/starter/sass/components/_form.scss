@@ -1,0 +1,140 @@
+.form {
+	// margin on everything BUT the last one trick 
+	&__group:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+	
+	&__input {
+		font-size: 1.5rem;
+
+		// input elems don't automatically inherit the font so doing it here manually (same for color)
+		font-family: inherit;
+		color: inherit;
+
+		// JONASTIP: ALWAYS A BIT MORE PADDING ON THE SIDES 
+		padding: 1.5rem 2rem;
+		border-radius: 2px;
+		background-color: rgba($color-white, .5);
+		border: none;
+
+		// adding this to the INITIAL STATE as below it makes the elem move a bit because of the added 3px when focused on 
+		// THAT WAY IT DOESN'T MOVE!!!!!!!!!!!
+		border-bottom: 3px solid transparent;
+		width: 60%;
+		transition: all .3s;
+
+		@include respond(tab-port) {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+
+		// NOTE ONLY FOR SAFARI AND CHROME
+		// below is how you stylize PLACEHOLDER text for an input
+		&::-webkit-input-placeholder {
+			color: $color-grey-dark-2;
+		}
+
+		&:focus:invalid {
+			// THIS is the style we want to apply when we have an invalid focused elem!!!!!!
+			border-bottom: 3px solid $color-secondary-dark;
+		}
+
+		&:focus {
+			// below replaces default browser focus (on input or whatever) with something CUSTOM and much cooler looking!! 
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($color-black, .1);
+	
+			// border: thickness, style, color
+			border-bottom: 3px solid $color-primary;
+		} 
+
+	}
+
+
+
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-left: 2rem;
+		margin-top: .7rem;
+		display: block;
+		
+		// the transition is for the animation below
+		transition: all .3s;
+	}
+
+	&__input:placeholder-shown + &__label {
+		// the plus operator is the adjacent sibling selector
+		// '~' is the general sibling selector
+
+		// need to use opacity so we can animate the effect
+		opacity: 0;
+
+		// removed from page flow
+		visibility: hidden;
+
+		// for animation: it moves down the page 4rem
+		transform: translateY(-4rem)
+	}
+
+		&__radio-group {
+			width: 49%;
+			display: inline-block;
+
+			@include respond(tab-port) {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+		}
+
+		&__radio-input {
+			// this hides the original un-stylable radio
+			display: none;
+		}
+
+		&__radio-label {
+			font-size: $default-font-size;
+			cursor: pointer;
+			position: relative;
+			padding-left: 4.5rem;
+		}
+
+		&__radio-button {
+			height: 3rem;
+			width: 3rem;
+			border: 5px solid $color-primary;
+			display: inline-block;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: -.4rem;
+
+			&::after {
+				content: "";
+				display: block;
+				height: 1.3rem;
+				width: 1.3rem;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: $color-primary;
+
+				// opacity zero here so the UNselected radio is empty
+				opacity: 0;
+
+				// for the animation to smooth it out a bit
+				transition: opacity(.2s);
+			}
+		}
+
+		// the actual radio has a pseudo-class of checked as part of it's makeup, which we can leverage to our advantage with the below :checked 
+		// the GOAL here is to hide the original radio and show our new stylized span, but it needs to have a filled in green circle if it is indeed checked, hence the above
+
+		// when the radio input is:checked ~ select sibling &__then the child, and the pseudo::after
+		&__radio-input:checked ~ &__radio-label &__radio-button::after {
+			// opacity one here so the selected radio is full
+			opacity: 1;
+		}
+}	

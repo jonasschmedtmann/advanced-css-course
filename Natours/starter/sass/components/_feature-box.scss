@@ -1,0 +1,32 @@
+.feature-box {
+	background-color: rgba($color-white, .8);
+	font-size: 1.5rem;
+	padding: 2.5rem;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+	transition: all .3s;
+
+	@include respond(tab-port) {
+		padding: 2rem;
+	}
+
+	&__icon {
+		font-size: 6rem;
+		margin-bottom: .5rem;
+
+		// all of the below is needed for the cool gradient trick on the icon, which works coz it's technically text as it is an ICON FONT
+		display: inline-block; // goes from left to right
+		background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+		-webkit-background-clip: text;
+		color: transparent;
+
+		@include respond(tab-port) {
+			margin-bottom: 0;
+		}
+	}
+
+	&:hover {
+		transform: translateY(-1.5rem) scale(1.03);
+	}
+}

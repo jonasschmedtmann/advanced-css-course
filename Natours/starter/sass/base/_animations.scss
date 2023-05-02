@@ -1,0 +1,47 @@
+@keyframes moveInLeft {
+
+	/* want to go from left to right so NEGATIVE value means comes from the left and POSTIVE value means goes to the right */
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+	}
+
+	/* this 80% makes it go to the right a bit before settling into place */
+	80% {
+		transform: translateX(1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	/* this 80% makes it go to the LEFT a bit before settling into place */
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}

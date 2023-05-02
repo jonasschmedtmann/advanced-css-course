@@ -1,0 +1,120 @@
+.btn {
+	&--animated {
+		animation: moveInBottom 2s ease-out .75;
+
+		/* automatically applies the styles at 0% before the animation starts. In this case, makes it so button doesn't initially appear before animation */
+		animation-fill-mode: backwards;
+	}
+	&,
+	&:link,
+	&:visited {
+		/* needed to add font-size here after REM conversion: */
+		font-size: $default-font-size;
+
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1.5rem 4rem;
+		display: inline-block;
+		border-radius: 10rem;
+		/* transition: always go in the INITIAL state, just the way it is... */
+		transition: all .2s;
+		/* the below is set for the ::after pseudo element animation to work */
+		position: relative;
+
+		// change for the <button> elem
+		border: none;
+		cursor: pointer;
+	}
+
+	&:hover {
+		/* to move UP, it is a negative value ie page flows from top to bottom */
+		transform: translateY(-3px);
+		/* x value, y value blur color of shadow */
+		box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+		&::after {
+			/* want the element to grow and to fade out...scale just makes it bigger */
+			transform: scaleX(1.4) scaleY(1.6);
+
+			/* sets the animation to invisible: */
+			opacity: 0;
+		}
+	}
+
+	&:active,
+	&:focus {
+		/* moves btn a bit down onclick */
+		transform: translateY(-1px);
+		/* want the shadow to look smaller onclick, hence give the user the impression it is CLOSER to page and FURTHER away from user, less blur too */
+		box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+	}
+
+	&--white {
+		background-color: $color-white;
+		color: $color-grey-dark;
+
+		&::after {
+			background-color: $color-white;
+		}
+	}
+
+	&--green {
+		background-color: $color-primary;
+		color: $color-white;
+
+		&::after {
+			background-color: $color-primary;
+		}
+	}
+
+	&::after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		border-radius: 10rem;
+		/* the below code is what actually puts it BEHIND the button, else it just looks giant (underneath) */
+		position: absolute;
+		top: 0;
+		left: 0;
+		/* this ABSOLUTE positioning needs to have reference (RELATIVE), which is the first element with the RELATIVE position it can find, but needs to be ORIGINAL element (the button) SEE ABOVE*/
+		z-index: -1;
+		/* ^^sets the position of the elements if they are on top of the other, also needed for the ::after to work. the neg 1 puts it behind */
+
+		/* again, transition goes on the initial state here to animate the scale below of the pseudo elem; */
+		transition: all .4s;
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		font-size: $default-font-size;
+		color: $color-primary;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-primary;
+		padding: 3px;
+
+		// need the transition for the transform below to work
+		transition: all .2s;
+	}
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+
+		// x, y, blur, color
+		box-shadow: 0 1rem 2rem rgba($color-black, .15);
+
+		// moves the btn UP a bit on hover
+		transform: translateY(-2px);
+	}
+
+	&:active {
+		box-shadow: 0 1rem 2rem rgba($color-black, .15);
+		
+		//moves it back to original position DON'T FORGET TRANSITION to work!!!
+		transform: translateY(0);
+	}
+}

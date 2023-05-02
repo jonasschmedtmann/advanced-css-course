@@ -1,0 +1,67 @@
+.row {
+	// 1140px is a standard starter layout for width but in REM we just divide by 10
+	max-width: $grid-width;
+
+	@include respond(tab-port) {
+		max-width: 50rem;
+		// padding: top/bottom left/right;
+		padding: 0 3rem;
+	}
+
+
+	// trick to center a block elem inside another block elem !!!!!!!!
+	margin: 0 auto;
+	
+	// :not pseudo selects everything EXCEPT last child
+	&:not(:last-child) {
+		margin-bottom: $gutter-vertical;
+
+		@include respond(tab-port) {
+			margin-bottom: $gutter-vertical-small;
+		}
+	}
+
+	@include clearfix;
+
+	// below: attr selected for classes that  ^start WITH $end WITH *contains
+	[class^="col-"] {
+		float: left;
+	
+		&:not(:last-child) {
+			margin-right: $gutter-horizontal;
+
+			@include respond(tab-port) {
+				margin-right: 0;
+				margin-bottom: $gutter-vertical-small;
+			}
+		}
+
+		@include respond(tab-port) {
+			width: 100% !important;
+		}
+	}
+	// nesting this here translates to 'a column which will always be in a row'
+	.col-1-of-2 {
+		width: calc((100% - #{$gutter-horizontal}) / 2);
+	}
+
+	.col-1-of-3 {
+		width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+	}
+
+	.col-2-of-3 {
+		width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+	}
+
+	.col-1-of-4 {
+		width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+	}
+
+	.col-2-of-4 {
+		width: calc(2 * (100% - 3 * #{$gutter-horizontal}) / 4 + #{$gutter-horizontal});
+	}
+
+	.col-3-of-4 {
+		width: calc(3 * (100% - 3 * #{$gutter-horizontal}) / 4 + 2 * #{$gutter-horizontal});
+	}
+}

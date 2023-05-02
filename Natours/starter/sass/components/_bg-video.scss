@@ -1,0 +1,19 @@
+.bg-video {
+	// setting the position to absolute here (dont forget to set parent to relative which is .section-stories in __home.scss) REMOVED it from the flow of the page, which allowed us to use it as a background image video
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	// z-index: -1;
+	opacity: .15;
+	overflow: hidden;
+
+	&__content {
+		height: 100%;
+		width: 100%;
+
+		// similar to background-size: cover, but preserves aspect ration of video
+		object-fit: cover;
+	}
+}

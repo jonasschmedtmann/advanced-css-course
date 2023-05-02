@@ -1,0 +1,96 @@
+.story {
+	width: 75%;
+
+	// this trick is for centering a block elem WITHIN a block elem
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	background-color: rgba($color-white, .6);
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+	
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		
+		// make this a float so the rest of the content will float around it (the words around the circle icon)
+		float: left;
+		
+		// same as clip path, have to define a vector based shape, but this time circle
+		// parAms RADIUS at CENTER CENTER
+		// for the shape of the words
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+		
+		// FOR THE CIRCLE ITSELF
+		clip-path: circle(50% at 50% 50%);
+		transform: translateX(-3rem) skewX(12deg);
+		position: relative;
+
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
+
+	}
+	
+	&__img {
+		height: 100%;
+
+		// used transform: translateX below to move the lady in the circle icon image to the center;
+		transform: translateX(-4rem) scale(1.4);
+		backface-visibility: hidden;
+		transition: all .5s;
+	}
+	
+	&__text {
+		transform: skewX(12deg);
+
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+	}
+
+	&__caption {
+		position: absolute;
+		// note below for how to center with absolute
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		color: $color-white;
+		text-transform: uppercase;
+		font-size: 1.7rem;
+		text-align: center;
+		opacity: 0;
+
+		// tranistion for animations ALWAYS goes on the parent
+		transition: all .5s;
+
+		// backface-visibility below is to fix the weird 'shake' glitch behavior
+		backface-visibility: hidden;
+	}
+
+	&:hover &__caption {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__img {
+		// changing the scale prop from 1.4 above to 1 effectively ZOOMS in on hover, note the transition on the &__img above
+		transform: translateX(-4rem) scale(1);
+
+		// filter: for brightness, a value BELOW 100% makes it darker
+		filter: blur(3px) brightness(80%);
+	}
+}

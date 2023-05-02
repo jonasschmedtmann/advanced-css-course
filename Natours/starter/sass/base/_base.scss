@@ -1,0 +1,55 @@
+/* BASIC RESET */
+*,
+::after,
+::before {
+	/* the above selectors added to include pseudo-elems, and hopefully stave off any unexpected behavior */
+	margin: 0;
+	padding: 0;
+
+	/* considered BETTER PRACTICE by the css community, leveraging INHERIT here on ALL elements, of which the source is below in the body.... */
+	box-sizing: inherit;
+}
+
+
+html {
+	/* 1 rem === 10px */
+	/* font-size: 10px; */
+	
+	/* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+	/* do this so it is based on whatever user has selected in browser */
+	font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+
+	// this one is not necessary as is covered by tab-port
+	// @include respond(phone) {
+	// 	font-size: 50%; // 1rem = 9px; 9/16 = 56.25%
+	// }
+
+	// MEDIA QUERY ORDER: LARGER ONES BEFORE SMALLER ONES
+
+	@include respond(tab-land) { // width < 900?
+		font-size: 56.25%; // 1rem = 9px; 9/16 = 56.25%
+	}
+	
+	// because of cascading, the last declaration applies, that's why this one is second
+	//ie if we had 700px both this one and the one above would apply, but the LAST ONE takes precedence
+	@include respond(tab-port) { // width < 600?
+		font-size: 50%; // 1rem = 8px; 8/16 = 50%
+	}
+
+	@include respond(big-desktop) {
+		font-size: 75%; // 1rem = 12px; 12/16 = 75%
+	}
+
+
+}
+
+body {
+	box-sizing: border-box;
+	padding: 3rem;
+
+	// removes the white border around the app
+	@include respond(tab-port) {
+		padding: 0;
+	}
+}
+
