@@ -33,6 +33,8 @@ Grey dark 3: #999
 	--color-grey-dark-2: #777;
 	--color-grey-dark-3: #999;
 
+	// can store things other than colors as vars!
+	--shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3)
 } 
 
 // GLOBAL RESET SECTION: note how border-box is set on html then force the inheritence to EVERYTHING (on a bagel)

@@ -1,0 +1,50 @@
+.container {
+	// max-width === if the viewport is smaller than the value specified, take up 100% of the space
+	max-width: 120rem;
+
+	// centers the container in its parent elem, which is the body
+	margin: 8rem auto;
+	background-color: var(--color-grey-light-2);
+	box-shadow: var(--shadow-dark);
+
+	min-height: 50rem;
+}
+
+.header {
+	// so the placeholder text will inherit
+	font-size: 1.4rem;
+	
+	height: 7rem;
+	background-color: #fff;
+	border-bottom: var(--color-grey-light-2);
+
+	// puts in a row
+	display: flex;
+
+	// divides space equally between them, OR it's the one with no space at the ends
+	justify-content: space-between;
+
+	// aligns on the cross axis, a lot easier than finding the perfect margins
+	align-items: center;
+}
+
+.content {
+	display: flex;
+}
+
+.sidebar {
+	background-color: var(--color-grey-dark-1);
+
+	// NOTE: in flex-world, flex-basis should be used for width in the shorthand flex property (it is last)
+	// flex: grow shrink flex-basis
+	flex: 0 0 18%;
+	// since the basis value is a %, we don't want to shrink, but if it was a px value shrink would be 1
+
+}
+
+.hotel-view {
+	background-color: orangered;
+
+	// by using flex: 1 we are saying we want the elem to GROW (take up available space) as MUCH as it can
+	flex: 1;
+}
