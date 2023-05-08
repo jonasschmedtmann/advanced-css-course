@@ -1,0 +1,92 @@
+///////////////////////////////////////////////
+// LOGO
+.logo {
+	height: 3.25rem;
+	margin-left: 3rem;
+}
+
+///////////////////////////////////////////////
+// SEARCH
+.search {
+	flex: 0 0 40%;
+
+	// NESTED FLEX!
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__input {
+		// input elem DOES NOT automatically inherit based on the global document for either of these:
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		background-color: var(--color-grey-light-2);
+		border: none;
+		padding: .7rem 2rem;
+		border-radius: 110px;
+		width: 90%;
+		transition: all .2s;
+
+		// this way btn will move on top of the input
+		margin-right: -3.5rem;
+
+		&:focus {
+			outline: none;
+			width: 100%;
+			background-color: var(--color-grey-light-3);
+		}
+
+		// chrome and safari browsers
+		&::-webkit-input-placeholder {
+			font-weight: 100;
+			color: var(--color-grey-light-4);
+		}
+	}
+
+	// checkbox hack by selecting the adjacent elem (sibling) based on pseudo state
+	&__input:focus + &__button {
+		background-color: var(--color-grey-light-3);
+	}
+
+	&__button {
+		border: none;
+		background-color: var(--color-grey-light-2);
+
+		&:focus {
+			outline: none;
+		}
+
+		&:active {
+			transform: translateY(2px);
+		}
+	}
+
+	&__icon {
+		height: 2rem;
+		width: 2rem;
+
+		// this declaration changes the actual SVG color
+		fill: var(--color-grey-dark-3);
+	}
+}
+
+///////////////////////////////////////////////
+// USER NAVIGATION
+.user-nav {
+	background-color: greenyellow;
+	&__icon-box {}
+
+	&__icon {
+		height: 2.25rem;
+		width: 2.25rem;
+	}
+
+	&__notification {}
+
+	&__user-photo {
+		height: 3.75rem;
+		width: 3.75rem;
+		border-radius: 50%;
+	}
+	&__user {}
+}
