@@ -73,20 +73,86 @@
 ///////////////////////////////////////////////
 // USER NAVIGATION
 .user-nav {
-	background-color: greenyellow;
-	&__icon-box {}
+
+	// this over-rides the cross-axis centering we did in the .header class
+	align-self: stretch;
+
+	display: flex;
+	align-items: center;
+
+	// user nav AND all of the direct children
+	& > * {
+		padding: 0 2rem;
+		cursor: pointer;
+		height: 100%;
+
+		display: flex;
+		// aligns items along CROSS axis, which is usually vertically
+		align-items: center;
+	}
+
+	& > *:hover {
+		background-color: var(--color-grey-light-2);
+	}
+
+	&__icon-box {
+		position: relative;
+	}
 
 	&__icon {
 		height: 2.25rem;
 		width: 2.25rem;
+		color: var(--color-grey-dark-2);
 	}
 
-	&__notification {}
+	&__notification {
+		font-size: .8rem;
+		height: 1.75rem;
+		width: 1.75rem;
+		background-color: var(--color-primary);
+		border-radius: 50% ;
+		color: #fff;
+		position: absolute;
+		top: 1.5rem;
+		right: 1.1rem;
+
+		//this is how I tried to center the little numbers in the notification bubbles AND I FUCKIN NAILED IT
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
 
 	&__user-photo {
 		height: 3.75rem;
 		width: 3.75rem;
 		border-radius: 50%;
+		margin-right: 1rem;
 	}
-	&__user {}
+}
+
+///////////////////////////////////////////////
+// SIDE NAVIGATION
+.side-nav {
+	
+
+	&__item {}
+
+	&__link {}
+
+	&__icon {
+		// NOTE: usually size SVGs as SQUARES
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+}
+
+///////////////////////////////////////////////
+// LEGAL
+
+.legal {
+	text-align: center;
+	font-size: 1.2rem;
+	color: var(--color-grey-light-4);
+	padding: 2.5rem;
 }
