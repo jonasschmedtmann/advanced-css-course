@@ -13,7 +13,7 @@
 .header {
 	// so the placeholder text will inherit
 	font-size: 1.4rem;
-	
+
 	height: 7rem;
 	background-color: #fff;
 	border-bottom: var(--color-grey-light-2);
@@ -24,7 +24,7 @@
 	// divides space equally between them, OR it's the one with no space at the ends
 	justify-content: space-between;
 
-	// aligns on the cross axis, a lot easier than finding the perfect margins
+	// aligns on the cross axis, a lot easier than finding the perfect margins (still need this for the WHOLE nav bar, not just the shit on the right
 	align-items: center;
 }
 
@@ -40,11 +40,18 @@
 	flex: 0 0 18%;
 	// since the basis value is a %, we don't want to shrink, but if it was a px value shrink would be 1
 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 }
 
 .hotel-view {
-	background-color: orangered;
+	background-color: #fff;
 
+	//testing
+	background-color: orangered;
+	height: 80rem;
 	// by using flex: 1 we are saying we want the elem to GROW (take up available space) as MUCH as it can
 	flex: 1;
 }
