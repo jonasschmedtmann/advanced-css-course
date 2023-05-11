@@ -1,0 +1,1 @@
+cp filename directory-name
