@@ -134,16 +134,31 @@
 ///////////////////////////////////////////////
 // SIDE NAVIGATION
 .side-nav {
-	
+	font-size: 1.4rem;
+	list-style: none;
+	margin-top: 3.5rem;
 
 	&__item {}
 
-	&__link {}
+	&__link:link,
+	&__link:visited {
+		color: var(--color-grey-light-1);
+		text-decoration: none;
+		text-transform: uppercase;
+		display: block;
+
+		// padding: top/bottom left/right;
+		padding: 1.5rem 3rem;
+	}
 
 	&__icon {
 		// NOTE: usually size SVGs as SQUARES
 		width: 1.75rem;
 		height: 1.75rem;
+		margin-right: 2rem;
+
+		// currentColor is the current color being used or the PARENT (in this case, made --color-grey-light-1 as above ^^
+		fill: currentColor;
 	}
 }
 
