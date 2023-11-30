@@ -8,9 +8,12 @@ Dark green: #28b485
 */
 
 :root {
-    --light-green: rgba(126, 213, 111, 0.8);
+    --light-green: #7ed56f;
+    --light-green-alpha: rgba(126, 213, 111, 0.8);
     --medium-green: #55c57a;
-    --dark-green: rgba(40, 180, 133, 0.8);
+    --medium-green-alpha: rgba(85, 197, 122, 0.8);
+    --dark-green: #28b485;
+    --dark-green-alpha: rgba(40, 180, 133, 0.8);
 }
 
 * {
@@ -31,11 +34,35 @@ body {
 .header {
     height: 95vh;
     background-image: linear-gradient(to right bottom,
-        var(--light-green),
-        var(--dark-green)),
+        var(--light-green-alpha),
+        var(--dark-green-alpha)),
         url("../img/hero.jpg");
     background-size: cover;
     background-position: top;
+    position: relative;
 
-    /*clip-path: polygon(x y, x y, x y, x y);*/
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+
+}
+
+.heading-primary-sub {
+
 }
