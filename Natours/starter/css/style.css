@@ -257,6 +257,7 @@ body {
   top: 6rem;
   right: 6rem;
   border-radius: 50%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   z-index: 2000;
 }
 .navigation__background {
@@ -268,15 +269,16 @@ body {
   right: 6.5rem;
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
-  transform: scale(80);
+  transition: transform 0.8s;
 }
 .navigation__nav {
   height: 100vh;
-  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 1500;
+  opacity: 0;
+  width: 0;
 }
 .navigation__list {
   position: absolute;
@@ -310,6 +312,13 @@ body {
   background-position: 100%;
   color: #55c57a;
   transform: translateX(1rem);
+}
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80);
+}
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%;
 }
 
 .btn, .btn:link, .btn:visited {
