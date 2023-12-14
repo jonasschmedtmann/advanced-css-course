@@ -9,6 +9,8 @@
     display: block;
     font-size: 6rem;
     font-weight: 700;
+    text-align: center;
+    padding-left: 2rem;
     letter-spacing: 3.4rem;
 
     animation-name: moveInLeft;
@@ -19,7 +21,8 @@
     display: block;
     font-size: 2rem;
     font-weight: 400;
-    letter-spacing: 1.7rem;
+    padding-left: .5rem;
+    letter-spacing: 1.6rem;
 
     animation: moveInRight 1s ease-out;
   }

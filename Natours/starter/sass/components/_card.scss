@@ -16,24 +16,26 @@
     overflow: hidden;
     box-shadow: $box-shadow-1;
 
-    &--front{
+    &--front {
       background-color: $color-white;
     }
 
     &--back {
       transform: rotateY(-180deg);
 
-      &-1{
+      &-1 {
         background-image: linear-gradient(to bottom right,
                 $color-secondary-light,
                 $color-secondary-dark);
       }
-      &-2{
+
+      &-2 {
         background-image: linear-gradient(to bottom right,
                 $color-primary-light,
                 $color-primary-dark);
       }
-      &-3{
+
+      &-3 {
         background-image: linear-gradient(to bottom right,
                 $color-tertiary-light,
                 $color-tertiary-dark);
@@ -64,19 +66,21 @@
       background-image: linear-gradient(to bottom right,
               $color-secondary-light,
               $color-secondary-dark),
-              url("../img/nat-5.jpg");
+      url("../img/nat-5.jpg");
     }
+
     &--2 {
       background-image: linear-gradient(to bottom right,
               $color-primary-light,
               $color-primary-dark),
-              url("../img/nat-6.jpg");
+      url("../img/nat-6.jpg");
     }
+
     &--3 {
       background-image: linear-gradient(to bottom right,
               $color-tertiary-light,
               $color-tertiary-dark),
-              url("../img/nat-7.jpg");
+      url("../img/nat-7.jpg");
     }
   }
 
@@ -94,7 +98,7 @@
   }
 
   &__heading-span {
-      box-decoration-break: clone;
+    box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 
     &--1 {
@@ -125,7 +129,7 @@
     ul {
       list-style: none;
       width: 80%;
-      margin: 0 auto ;
+      margin: 0 auto;
 
       li {
         text-align: center;
@@ -141,10 +145,7 @@
 
   // BACK SIDE ONLY
   &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absoluteCenter;
     width: 90%;
     text-align: center;
   }
