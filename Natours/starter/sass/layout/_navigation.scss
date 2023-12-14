@@ -13,6 +13,20 @@
     border-radius: 50%;
     box-shadow: $box-shadow-1;
     z-index: 2000;
+    text-align: center;
+    cursor: pointer;
+
+    // Icon animations
+    &:hover {
+      & > ::before {
+        transform: translateY(-.3rem);
+      }
+
+      & > ::after {
+        transform: translateY(.3rem);
+      }
+    }
+
   }
 
   &__background {
@@ -24,22 +38,24 @@
     right: 6.5rem;
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
-    transition: transform .8s;
+    transition: transform .7s cubic-bezier(.44,.25,.78,.58);
   }
 
   &__nav {
     height: 100vh;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 1500;
 
     opacity: 0;
     width: 0;
+    transition: all .4s cubic-bezier(.77, .01, .19, 1.55) .2s;
   }
 
   &__list {
     @include absoluteCenter;
+    width: 100%;
     text-align: center;
     list-style: none;
   }
@@ -47,6 +63,7 @@
   &__item {
     margin: 1rem;
   }
+
   &__link {
     &:link,
     &:visited {
@@ -83,5 +100,52 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      transition: all .3s;
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -.8rem;
+      transform-origin: center;
+    }
+
+    &::after {
+      top: .8rem;
+      transform-origin: center;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+    transition: all .3s;
+
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
   }
 }

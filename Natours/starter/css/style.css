@@ -66,6 +66,8 @@ body {
   display: block;
   font-size: 6rem;
   font-weight: 700;
+  text-align: center;
+  padding-left: 2rem;
   letter-spacing: 3.4rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -74,7 +76,8 @@ body {
   display: block;
   font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 1.7rem;
+  padding-left: 0.5rem;
+  letter-spacing: 1.6rem;
   animation: moveInRight 1s ease-out;
 }
 
@@ -144,7 +147,6 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 .header__logo-box * {
-  padding: 0;
   backface-visibility: hidden;
 }
 .header__logo {
@@ -259,6 +261,14 @@ body {
   border-radius: 50%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   z-index: 2000;
+  text-align: center;
+  cursor: pointer;
+}
+.navigation__button:hover > ::before {
+  transform: translateY(-0.3rem);
+}
+.navigation__button:hover > ::after {
+  transform: translateY(0.3rem);
 }
 .navigation__background {
   height: 6rem;
@@ -269,22 +279,24 @@ body {
   right: 6.5rem;
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
-  transition: transform 0.8s;
+  transition: transform 0.7s cubic-bezier(0.44, 0.25, 0.78, 0.58);
 }
 .navigation__nav {
   height: 100vh;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 1500;
   opacity: 0;
   width: 0;
+  transition: all 0.4s cubic-bezier(0.77, 0.01, 0.19, 1.55) 0.2s;
 }
 .navigation__list {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
   text-align: center;
   list-style: none;
 }
@@ -319,6 +331,42 @@ body {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+}
+.navigation__icon::before, .navigation__icon::after {
+  transition: all 0.3s;
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.navigation__icon::before {
+  top: -0.8rem;
+  transform-origin: center;
+}
+.navigation__icon::after {
+  top: 0.8rem;
+  transform-origin: center;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
 }
 
 .btn, .btn:link, .btn:visited {
