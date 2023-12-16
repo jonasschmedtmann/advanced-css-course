@@ -73,11 +73,6 @@ html {
     font-size: 50%;
   }
 }
-@media (max-width: 37.5em) {
-  html {
-    font-size: 31.25%;
-  }
-}
 
 body {
   font-family: "Lato", sans-serif;
@@ -87,6 +82,11 @@ body {
   padding: 3rem;
   box-sizing: border-box;
   margin: 0 auto;
+}
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
 }
 
 .heading-primary {
@@ -105,6 +105,12 @@ body {
   animation-name: moveInLeft;
   animation-duration: 1s;
 }
+@media (max-width: 37.5em) {
+  .heading-primary--main {
+    letter-spacing: 1rem;
+    font-size: 5rem;
+  }
+}
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
@@ -112,6 +118,11 @@ body {
   padding-left: 0.5rem;
   letter-spacing: 1.6rem;
   animation: moveInRight 1s ease-out;
+}
+@media (max-width: 37.5em) {
+  .heading-primary--sub {
+    letter-spacing: 0.5rem;
+  }
 }
 
 .heading-secondary {
@@ -128,6 +139,16 @@ body {
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
 }
 
 .heading-tertiary {
@@ -203,6 +224,11 @@ body {
 .row:not(:last-child) {
   margin-bottom: 8rem;
 }
+@media (max-width: 56.25em) {
+  .row:not(:last-child) {
+    margin-bottom: 6rem;
+  }
+}
 .row::after {
   content: "";
   display: table;
@@ -213,6 +239,17 @@ body {
 }
 .row [class^=col-]:not(:last-child) {
   margin-right: 6rem;
+}
+@media (max-width: 56.25em) {
+  .row [class^=col-]:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 6rem;
+  }
+}
+@media (max-width: 56.25em) {
+  .row [class^=col-] {
+    width: 100% !important;
+  }
 }
 .row .col-1-of-2 {
   width: calc((100% - 6rem) / 2);
