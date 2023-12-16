@@ -12,3 +12,43 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+/*
+  Breakpoints:
+  - Up to 600px width     Phone
+  - Up to 900px width     Tablet portrait
+  - Up to 1200px width    Tablet landscape
+  - Up to 1800px width    avg desktop
+
+$break arg choices:
+ - phone
+ - tab-port
+ - tab-land
+ - big-desktop
+ */
+@mixin respond($break) {
+  @if $break == phone {
+    @media (max-width: 37.5em) {  // 600px
+      @content
+    }
+  }
+
+  @if $break == tab-port {
+    @media (max-width: 56.25em) {  // 900px
+      @content
+    }
+  }
+
+  @if $break == tab-land {
+    @media (max-width: 75em) {  // 1200px
+      @content
+    }
+  }
+
+  @if $break == big-desktop {
+    @media (max-width: 112.5em) { // 1800px
+      @content
+    }
+  }
+}
