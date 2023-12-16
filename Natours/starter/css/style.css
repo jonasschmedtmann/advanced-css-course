@@ -73,6 +73,11 @@ html {
     font-size: 50%;
   }
 }
+@media (max-width: 37.5em) {
+  html {
+    font-size: 31.25%;
+  }
+}
 
 body {
   font-family: "Lato", sans-serif;
