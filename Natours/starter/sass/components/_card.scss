@@ -165,4 +165,60 @@
     font-size: 6rem;
     font-weight: 100;
   }
+
+  // MEDIA QUERY--------------------------------------------------------------------
+  @include respond(tab-port) {
+    height: auto;
+    box-shadow: $box-shadow-1;
+    border-radius: 3px;
+    background-color: $color-white;
+
+    & * {
+      transition: none;
+    }
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        border-radius: 0;
+        top: 0;
+
+        clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
+      }
+
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    // BACK SIDE ONLY
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      height: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    &__price-value {
+      font-size: 5rem;
+    }
+
+  }
 }

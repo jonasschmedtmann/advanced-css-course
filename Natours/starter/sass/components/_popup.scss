@@ -46,28 +46,52 @@
     box-shadow: $box-shadow-1;
     border-radius: 3px;
     width: 75%;
-    display: table;
+    display: flex;
     overflow: hidden;
     transform: translate(-50%, -50%) scale(.25);
     opacity: 0;
     transition: all .4s .2s;
+
+    @include respond(tab-port){
+      flex-direction: column;
+    }
   }
 
   &__left {
     width: 33.333333%;
-    display: table-cell;
+    height: inherit;
+
+    @include respond(tab-port){
+      //height: 33.333333%;
+      width: inherit;
+    }
   }
 
   &__right {
     width: 66.66666667%;
-    display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    @include respond(tab-port){
+      width: inherit;
+      //height: 66.66666667%;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+
+    &--1 {
+      background-image: url("../img/nat-8.jpg");
+    }
+
+    &--2 {
+      background-image: url("../img/nat-9.jpg");
+    }
   }
 
   &__text {
@@ -89,5 +113,10 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+      column-gap: 0;
+    }
   }
 }
