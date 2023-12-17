@@ -2,12 +2,22 @@
   max-width: $grid-width;
   margin: 0 auto;
 
+  @include respond(tab-port) {
+    margin-bottom: $gutter-vertical-sm ;
+    padding: 0 3rem ;
+  }
+
+  @include respond(phone) {
+    margin-bottom: $gutter-vertical-sm ;
+    padding: 0 3rem ;
+  }
+
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+  }
 
-    @include respond(tab-port) {
-      margin-bottom: $gutter-vertical-sm ;
-    }
+  @include respond(tab-port) {
+    max-width: 50rem;
   }
 
   @include clearfix;
