@@ -19,12 +19,7 @@ html {
 
   @include respond(tab-port) { // width < 900
     font-size: 50%; // 1 rem = 8px; 8/16 = 50%
-  }
-
-  @include respond(phone) { // width < 600
-    font-size: 31.25%; // 1 rem = 5px; 5/16
-  }
-
+   }
 
 }
 
@@ -36,4 +31,8 @@ body {
   padding: 3rem;
   box-sizing: border-box;
   margin: 0 auto;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

@@ -16,6 +16,16 @@
     text-align: center;
     cursor: pointer;
 
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+
     // Icon animations
     &:hover {
       & > ::before {
@@ -39,6 +49,16 @@
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
     transition: transform .7s cubic-bezier(.44,.25,.78,.58);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 4rem;
+      right: 4rem;
+    }
   }
 
   &__nav {
