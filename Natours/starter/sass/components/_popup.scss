@@ -52,7 +52,7 @@
     opacity: 0;
     transition: all .4s .2s;
 
-    @include respond(tab-port){
+    @include respond(tab-port) {
       flex-direction: column;
     }
   }
@@ -61,9 +61,8 @@
     width: 33.333333%;
     height: inherit;
 
-    @include respond(tab-port){
-      //height: 33.333333%;
-      width: inherit;
+    @include respond(tab-port) {
+      display: none;
     }
   }
 
@@ -72,9 +71,10 @@
     vertical-align: middle;
     padding: 3rem 5rem;
 
-    @include respond(tab-port){
-      width: inherit;
-      //height: 66.66666667%;
+    @include respond(tab-port) {
+      width: 100%;
+      height: 100%;
+      text-align: center;
     }
   }
 
@@ -84,6 +84,10 @@
     height: 50%;
     background-size: cover;
     background-position: center;
+
+    @include respond(phone) {
+      display: none;
+    }
 
     &--1 {
       background-image: url("../img/nat-8.jpg");

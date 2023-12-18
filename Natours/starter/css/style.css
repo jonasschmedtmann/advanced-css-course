@@ -1119,7 +1119,7 @@ body {
 }
 @media (max-width: 56.25em) {
   .popup__left {
-    width: inherit;
+    display: none;
   }
 }
 .popup__right {
@@ -1129,7 +1129,9 @@ body {
 }
 @media (max-width: 56.25em) {
   .popup__right {
-    width: inherit;
+    width: 100%;
+    height: 100%;
+    text-align: center;
   }
 }
 .popup__img {
@@ -1138,6 +1140,11 @@ body {
   height: 50%;
   background-size: cover;
   background-position: center;
+}
+@media (max-width: 37.5em) {
+  .popup__img {
+    display: none;
+  }
 }
 .popup__img--1 {
   background-image: url("../img/nat-8.jpg");
