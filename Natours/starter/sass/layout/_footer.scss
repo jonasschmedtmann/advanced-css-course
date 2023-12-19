@@ -1,10 +1,10 @@
 .footer {
   background-color: $color-grey-dark-3;
-  padding: 10rem 0;
+  padding: 10rem 3rem;
   font-size: 1.4rem;
 
   @include respond(tab-port) {
-    padding: 5rem 0;
+    padding: 5rem 1rem;
   }
 
   @include respond(phone) {

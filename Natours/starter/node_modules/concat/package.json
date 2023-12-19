@@ -1,0 +1,41 @@
+{
+  "name": "concat",
+  "version": "1.0.3",
+  "description": "concatenate multiple files",
+  "main": "index.js",
+  "scripts": {
+    "bin": "tsc -t ES6 --moduleResolution node ./bin/concat.ts --outFile ./bin/concat",
+    "build": "tsc -t ES6 --module commonjs --moduleResolution node index.ts && npm run bin",
+    "test": "npm run build && _mocha"
+  },
+  "bin": "./bin/concat",
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gko/concat"
+  },
+  "keywords": [
+    "concatenate",
+    "files",
+    "concat",
+    "join"
+  ],
+  "author": "Konstantin Gorodinskiy <mail@konstantin.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gko/concat/issues"
+  },
+  "homepage": "https://github.com/gko/concat#readme",
+  "devDependencies": {
+    "@types/core-js": "^0.9.41",
+    "@types/node": "^7.0.0",
+    "core-js": "^2.4.1",
+    "mocha": "^3.2.0",
+    "typescript": "^2.1.5"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
