@@ -1,8 +1,0 @@
-{
-	"compilerOptions": {
-		"module": "commonjs",
-		"noImplicitAny": true,
-		"target": "es6",
-		"types" : [ "node", "core-js" ]
-	}
-}
