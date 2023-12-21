@@ -36,6 +36,7 @@
       color: var(--color-grey-light-4);
     }
   }
+
   &__button {
     border: none;
     background-color: transparent;
@@ -48,6 +49,7 @@
       transform: translateY(2px);
     }
   }
+
   &__icon {
     height: 2rem;
     width: 2rem;
@@ -58,20 +60,122 @@
 //**********************************************************************************
 //USER NAVIGATION
 .user-nav {
-  background-color: greenyellow;
   display: flex;
   align-items: center;
+  align-self: stretch;
 
-  &__icon-box{}
+
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+    fill: var(--color-grey-dark-2);
   }
-  &__notification {}
-  &__user {}
+
+  &__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__user-photo {
+    margin-right: .5rem;
     height: 3.75rem;
     border-radius: 50%;
   }
-  &__user-name {}
+}
+
+//**********************************************************************************
+//SIDE NAVIGATION
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+  }
+
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top:  0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .2s,
+                width .4s .2s cubic-bezier(1, 0, 0, 1),
+                background-color .1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: currentColor;
+    margin-right: 2rem;
+    position: relative;
+    top: .3rem;
+  }
+}
+
+//**********************************************************************************
+//LEGAL
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
 }

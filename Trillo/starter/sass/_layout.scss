@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3rem;
+  padding: 0 0 0 2rem;
 }
 
 .content {
@@ -24,12 +24,17 @@
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 0 0 18%;
 }
 
 .hotel-view {
-  background-color: orangered;
+  background-color: #fff;
 
+  // TEST
+  background-color: orangered;
+  height: 80rem;
   flex: 1;
 }
