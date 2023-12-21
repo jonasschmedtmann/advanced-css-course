@@ -1,0 +1,77 @@
+//**********************************************************************************
+//LOGO
+.logo {
+  height: 3.25rem;
+}
+
+//**********************************************************************************
+//SEARCH
+.search {
+  display: flex;
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    color: inherit;
+    padding: .7rem 2rem;
+    border-radius: 50rem;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      background-color: var(--color-grey-light-3);
+      width: 100%;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+  &__button {
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+  }
+}
+
+//**********************************************************************************
+//USER NAVIGATION
+.user-nav {
+  background-color: greenyellow;
+  display: flex;
+  align-items: center;
+
+  &__icon-box{}
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+  &__notification {}
+  &__user {}
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+  }
+  &__user-name {}
+}
