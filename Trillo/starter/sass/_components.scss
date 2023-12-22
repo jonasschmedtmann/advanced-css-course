@@ -10,7 +10,6 @@
 .search {
   display: flex;
   flex: 0 0 40%;
-  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -38,6 +37,10 @@
       outline: none;
       background-color: var(--color-grey-light-3);
       width: 100%;
+
+      @media only screen and (max-width: $bp-smallest) {
+        background-color: var(--color-grey-light-2);
+      }
     }
 
     &::-webkit-input-placeholder {
@@ -456,15 +459,20 @@
       height: 1rem;
       width: 1rem;
       margin-right: .7rem;
+
       // Older browsers
-      //background-image: url("../img/chevron-thin-right.svg");
-      //background-size: cover;
+      background-image: url("../img/chevron-thin-right.svg");
+      background-size: cover;
 
       // Newer browsers -> masks
-      background-color: var(--color-primary);
-      -webkit-mask-image: url("../img/chevron-thin-right.svg");
-      -webkit-mask-size: cover;
-      mask-size: cover;
+      @supports (-webkit-mask-image: url("../img/chevron-thin-right.svg")) or (mask-image: url("../img/chevron-thin-right.svg")) {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url("../img/chevron-thin-right.svg");
+        -webkit-mask-size: cover;
+        mask-image: url("../img/chevron-thin-right.svg");
+        mask-size: cover;
+        background-image: none;
+      }
     }
   }
 }
