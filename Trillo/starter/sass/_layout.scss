@@ -5,21 +5,36 @@
   box-shadow: var(--shadow-dark);
 
   min-height: 50rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .header {
   font-size: 1.4rem;
-  height: 7rem;
   background-color: #fff;
-  border-bottom: var(--color-grey-light-1);
+  border-bottom: 1px solid var(--color-grey-light-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 0 2rem;
+  padding: 1rem 0;
+
+  @media only screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    padding-bottom: 0;
+  }
+
 }
 
 .content {
   display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+}
 }
 
 .sidebar {
@@ -34,7 +49,11 @@
   background-color: #fff;
 
   // TEST
-  background-color: orangered;
-  height: 80rem;
   flex: 1;
+}
+
+.user-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
