@@ -29,26 +29,35 @@ $break arg choices:
  */
 @mixin respond($break) {
   @if $break == phone {
-    @media (max-width: 37.5em) {  // 600px
+    @media only screen and (max-width: 37.5em) { // 600px
       @content
     }
   }
 
   @if $break == tab-port {
-    @media (max-width: 56.25em) {  // 900px
+    @media only screen and (max-width: 56.25em) { // 900px
       @content
     }
   }
 
   @if $break == tab-land {
-    @media (max-width: 75em) {  // 1200px
+    @media  only screen and (max-width: 75em) { // 1200px
       @content
     }
   }
 
   @if $break == big-desktop {
-    @media (max-width: 112.5em) { // 1800px
+    @media only screen and (max-width: 112.5em) { // 1800px
       @content
     }
   }
 }
+
+@mixin resolution($break) {
+  @if $break == retina {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 600px) {
+      @content
+    }
+  }
+}
+

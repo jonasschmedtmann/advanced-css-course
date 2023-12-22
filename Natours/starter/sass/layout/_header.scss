@@ -1,15 +1,27 @@
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom,
           rgba($color-primary-light, 0.8),
           rgba($color-primary-dark, 0.8)),
-  url("../img/hero.jpg");
+  url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
 
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  }
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), // doesn't work on safari
+  (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // works on safari
+  (min-width: 125em) {
+    background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)),
+    url("../img/hero.jpg");
+  }
+
 
   @include respond(tab-port) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);

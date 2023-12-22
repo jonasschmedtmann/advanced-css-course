@@ -1,15 +1,25 @@
 {
-  "name": "Natours",
+  "name": "natours",
   "version": "1.0.0",
-  "description": "",
+  "description": "trillo app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "sass sass/main.scss css/style.css -w"
+    "watch:sass": "sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+
+    "compile:sass": "sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versons' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "sass css/style.prefix.css css/style.css --style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Ben",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.0",
     "sass": "^1.69.5"
   }
 }
