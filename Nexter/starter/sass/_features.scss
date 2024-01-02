@@ -1,4 +1,34 @@
 .features {
-  background-color: $color-grey-light-2;
+  grid-column: center-start / center-end;
 
+  margin: 15rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+}
+
+.feature {
+  display: grid;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+  grid-template-columns: min-content 1fr;
+  grid-template-areas: "icon title"
+                       ". text";
+
+    &__icon{
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-area: icon;
+  }
+
+  &__heading {
+    grid-area: title;
+  }
+
+  &__text{
+    font-size: 1.7rem;
+    grid-area: text;
+  }
 }
