@@ -1,26 +1,30 @@
 .features {
   grid-column: center-start / center-end;
-
-  margin: 15rem;
+  margin: 15rem 0;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  //grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
+  justify-items: center;
 }
 
 .feature {
   display: grid;
   grid-row-gap: 1.5rem;
   grid-column-gap: 2.5rem;
+  grid-template-rows: min-content;
   grid-template-columns: min-content 1fr;
   grid-template-areas: "icon title"
                        ". text";
+  align-items: start;
 
     &__icon{
     fill: $color-primary;
     width: 4.5rem;
     height: 4.5rem;
     grid-area: icon;
+      transform: translateY(-1rem);
   }
 
   &__heading {
