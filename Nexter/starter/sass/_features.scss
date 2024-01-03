@@ -7,6 +7,11 @@
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
   justify-items: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin: 3rem 0;
+  }
+
 }
 
 .feature {

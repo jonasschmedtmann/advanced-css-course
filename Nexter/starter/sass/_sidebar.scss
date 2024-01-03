@@ -2,4 +2,57 @@
   background-color: $color-primary;
   grid-row: 1 / -1;
   grid-column: sidebar-start / sidebar-end;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
+    justify-content: end;
+    align-items: center;
+  }
+
+}
+
+.nav-btn {
+  border-radius: 0;
+  border: none;
+  margin-top: 4rem;
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
+
+  &::before {
+    background-color: #fff;
+    height: 2px;
+    content: "";
+    display: block;
+  }
+
+  &::after {
+    background-color: #fff;
+    height: 2px;
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+
+  &::after {
+    transform: translateY(1.3rem);
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    margin: 0 4rem;
+
+    &::before {
+      transform: translateY(-1.2rem);
+    }
+
+    &::after {
+      transform: translateY(1rem);
+    }
+  }
 }
