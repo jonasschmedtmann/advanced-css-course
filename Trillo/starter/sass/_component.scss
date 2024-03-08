@@ -138,8 +138,45 @@
 	list-style: none;
 	margin-top: 3.5rem;
 
-	&__item {}
+	////////////////////////// ANIMATION FOR SIDE NAV
+	// parent set to relative so psuedo is relative to it
+	&__item {
+		position: relative;
 
+		// HOW TO: add margin to the bottom of ALL the items EXCEPT the last one
+		&:not(:last-child) {
+			margin-bottom: .5rem;
+			width: 100%;
+		}
+	}
+
+	// pseudo elem used for hover nav item animation
+	&__item::before {
+		// ALWAYS need content
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 3px;
+		background-color: var(--color-primary);
+
+		// set here in the "normal" state as 0
+		transform: scaleY(0);
+
+		// default is center, controls where anime begins
+		transform-origin: bottom;
+
+		//duration for anime
+		transition: transform 1s;
+	}
+
+	&__item:hover::before {
+		transform: scaleY(1);
+
+		// make if for the ENTIRE ul, prev just a line to the left of each ul
+	}
+	
 	&__link:link,
 	&__link:visited {
 		color: var(--color-grey-light-1);
@@ -149,6 +186,10 @@
 
 		// padding: top/bottom left/right;
 		padding: 1.5rem 3rem;
+
+		// HOW TO: align icons with rows
+		display: flex;
+		align-items: center;
 	}
 
 	&__icon {

@@ -133,12 +133,32 @@ body {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  .side-nav__item {
+    position: relative; }
+    .side-nav__item:not(:last-child) {
+      margin-bottom: .5rem;
+      width: 100%; }
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 1s; }
+  .side-nav__item:hover::before {
+    transform: scaleY(1); }
   .side-nav__link:link, .side-nav__link:visited {
     color: var(--color-grey-light-1);
     text-decoration: none;
     text-transform: uppercase;
     display: block;
-    padding: 1.5rem 3rem; }
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center; }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
