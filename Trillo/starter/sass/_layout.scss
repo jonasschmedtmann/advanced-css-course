@@ -40,6 +40,7 @@
 	flex: 0 0 18%;
 	// since the basis value is a %, we don't want to shrink, but if it was a px value shrink would be 1
 
+	// this code is what allows the LEGAL to be all the way at the bottom with a lot of space; we changed the axis with flex-dir, then space-between in the new direction's justify-content
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -47,11 +48,29 @@
 }
 
 .hotel-view {
-	background-color: #fff;
+	// background-color: #fff;
+	background-color: orangered;
 
 	//testing
-	background-color: orangered;
 	height: 80rem;
 	// by using flex: 1 we are saying we want the elem to GROW (take up available space) as MUCH as it can
 	flex: 1;
 }
+
+// .box-container {
+// 	display: flex;
+// 	width: 50%;
+// }
+
+// .box {
+// 	width: 200px;
+// 	height: 200px;
+// 	margin: 1rem 1rem;
+// 	background-color: orangered;
+// 	flex-grow: 1;
+// }
+
+// .big {
+// 	flex-grow: 2;
+// 	background-color: aqua;
+// }
