@@ -146,7 +146,7 @@
 		// HOW TO: add margin to the bottom of ALL the items EXCEPT the last one
 		&:not(:last-child) {
 			margin-bottom: .5rem;
-			width: 100%;
+
 		}
 	}
 
@@ -163,18 +163,30 @@
 
 		// set here in the "normal" state as 0
 		transform: scaleY(0);
+		//duration for anime
+		// width makes anime full width, prev just a line to left of each ul
+		transition: transform .2s,
+					width .4s cubic-bezier(1,0,0,1) .2s,
+					background-color .1s;
+
+		// make anime full width, prev just a line to left of each ul
+		width: 100%;
 
 		// default is center, controls where anime begins
-		transform-origin: bottom;
+		// transform-origin: bottom;
 
-		//duration for anime
-		transition: transform 1s;
 	}
 
-	&__item:hover::before {
+	&__item:hover::before,
+	&__item--active::before {
 		transform: scaleY(1);
 
 		// make if for the ENTIRE ul, prev just a line to the left of each ul
+		width: 100%;
+	}
+
+	&__item:active::before {
+		background-color: (--color-primary-light);
 	}
 	
 	&__link:link,
@@ -190,6 +202,9 @@
 		// HOW TO: align icons with rows
 		display: flex;
 		align-items: center;
+
+		position: relative;
+		z-index: 10;
 	}
 
 	&__icon {
@@ -223,4 +238,120 @@
 		width: 100%;
 		display: block;
 	}
+}
+
+///////////////////////////////////////////////
+// HOTEL OVERVIEW
+
+.overview {
+	// good habit: set display to flex here in the parent before the &'s
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--color-grey-light-2);
+
+	&__heading {
+		font-size: 2.25rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		padding: 1.5rem 3rem;
+	}
+
+	&__stars {
+		// to add a space in the middle this WORKS but also makes the elem HUGE
+		// flex: 1;
+
+		// HOW TO: give a GIANT SPACE between elems in flexbox, neat!!!! while only occupying the space it needs
+		margin-right: auto;
+		display: flex;
+	}
+
+	&__icon-star,
+	&__icon-location {
+		width: 1.75rem;
+		height: 1.75rem;
+		fill: var(--color-primary)
+	}
+
+	&__location {
+		font-size: 1.2rem;
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon-location {
+		margin-right: .5rem;
+	}
+
+	&__rating {
+		background-color: var(--color-primary);
+		margin-left: 3rem;
+		color: #fff;
+
+		// HOW TO: strech all the way from top to bottom, overrides the align-items on line 279
+		align-self: stretch;
+		padding: 0 2.25rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__rating-count {
+		text-transform: uppercase;
+		font-size: .8rem;
+	}
+	
+	&__rating-average {
+		font-weight: 300;
+		font-size: 2.25rem;
+		margin-bottom: -.6rem;
+	}
+}
+
+///////////////////////////////////////////////
+// btn INLUNE
+
+.btn-inline {
+	border: none;
+	color: var(--color-primary);
+	font-size: inherit;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 2px;
+	display: inline-block;
+	background-color: transparent;
+	cursor: pointer;
+	transition: .2s;
+
+	&:hover {
+		color: var(--color-grey-dark-1);
+	}
+
+	&:focus {
+		outline: none;
+
+		//pulsate is the name of the animate, then speed and then duration
+		animation: pulsate 1s infinite;
+	}
+}
+
+@keyframes pulsate {
+	// what happens at begiining NOTHING
+	0% {
+		transform: scale(1);
+		box-shadow: none;
+	}
+	
+	// what happens at MIDDLE gets bigger, and box shadow
+	50% {
+		transform: scale(1.05);
+		box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+	}
+	// what happens at
+	100% {
+		transform: scale(1);
+		box-shadow: none;
+	}
+
 }
